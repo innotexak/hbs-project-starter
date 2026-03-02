@@ -1,0 +1,10 @@
+// ----------  footer
+// ------------------------------------------------------------------------------
+
+@use "../abstracts" as *;
+
+.footer {
+	background-color: $orange;
+	padding: 30px 0;
+	color: $white;
+}

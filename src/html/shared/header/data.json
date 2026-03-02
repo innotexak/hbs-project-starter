@@ -1,0 +1,23 @@
+{
+	"logo": {
+		"src": "assets/images/logo.png",
+		"alternateText": "Logo image."
+	},
+	"menu": [
+		{
+			"text": "Home",
+			"url": "/",
+			"target": ""
+		},
+		{
+			"text": "About us",
+			"url": "about.html",
+			"target": "_self"
+		},
+		{
+			"text": "Contacts us",
+			"url": "services.html",
+			"target": "_blank"
+		}
+	]
+}

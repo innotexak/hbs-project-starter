@@ -1,0 +1,22 @@
+<header class="header">
+	<div class="wrap">
+		<div class="header__container">
+			{{#if logo}}
+			<a href="/" class="header__home">
+				<img class="header__logo" src="{{logo.src}}" alt="{{logo.alternateText}}">
+			</a>
+			{{/if}}
+			{{#if menu}}
+			<nav class="nav">
+				<ul class="nav__list" role="menubar">
+					{{#each menu}}
+					<li class="nav__item" role="menuitem">
+						<a class="nav__link" href="{{this.url}}"{{#ifContains this.target "_blank"}} target="_blank" rel="noopener noreferrer"{{/ifContains}}>{{this.text}}</a>
+					</li>
+					{{/each}}
+				</ul>
+			</nav>
+			{{/if}}
+		</div>
+	</div>
+</header>
