@@ -1,22 +1,204 @@
-<header class="header">
-	<div class="wrap">
-		<div class="header__container">
-			{{#if logo}}
-			<a href="/" class="header__home">
-				<img class="header__logo" src="{{logo.src}}" alt="{{logo.alternateText}}">
-			</a>
-			{{/if}}
-			{{#if menu}}
-			<nav class="nav">
-				<ul class="nav__list" role="menubar">
-					{{#each menu}}
-					<li class="nav__item" role="menuitem">
-						<a class="nav__link" href="{{this.url}}"{{#ifContains this.target "_blank"}} target="_blank" rel="noopener noreferrer"{{/ifContains}}>{{this.text}}</a>
-					</li>
-					{{/each}}
+<header class="header" data-script="header">
+
+  <!-- Top bar (desktop only) -->
+      <div class="wrap">
+		{{#if businessTabs}}
+		<div class="header__topbar">
+
+			<div class="header__topbar-inner">
+				<ul class="header__tabs">
+				{{#each businessTabs}}
+				<li class="header__tab{{#if this.active}} header__tab--active{{/if}}">
+					<a class="header__tab-link" href="{{this.url}}"{{#ifContains this.target "_blank"}} target="_blank" rel="noopener noreferrer"{{/ifContains}}>
+					{{this.text}}
+					{{#ifContains this.target "_blank"}}
+					<span class="header__tab-icon" aria-hidden="true"></span>
+					{{/ifContains}}
+					</a>
+				</li>
+				{{/each}}
 				</ul>
-			</nav>
-			{{/if}}
+				<div
+				{{#if search}}
+				<div class="header__search">
+				<form class="header__search-form" role="search" action="{{search.action}}" method="get">
+					<label class="header__search-label sr-only" for="site-search">{{search.label}}</label>
+					<input
+					class="header__search-input"
+					id="site-search"
+					type="search"
+					name="q"
+					placeholder="{{search.placeholder}}"
+					aria-label="{{search.label}}"
+					>
+					<button class="header__search-btn" type="submit" aria-label="Submit search">
+					<span class="header__search-icon" aria-hidden="true"></span>
+					</button>
+				</form>
+				</div>
+				{{/if}}
+			</div>
+
 		</div>
-	</div>
+		{{/if}}
+      </div>
+
+  <!-- Main header -->
+  <div class="header__main">
+    <div class="wrap">
+      <div class="header__container">
+
+        {{#if logo}}
+        <a href="/" class="header__home" aria-label="Go to homepage">
+          <img class="header__logo" src="{{logo.src}}" alt="{{logo.alternateText}}">
+        </a>
+        {{/if}}
+
+        <!-- Desktop nav -->
+        {{#if menu}}
+        <nav class="nav" aria-label="Main navigation">
+          <ul class="nav__list" role="menubar">
+            {{#each menu}}
+            <li class="nav__item{{#if this.children}} nav__item--has-dropdown{{/if}}" role="menuitem">
+              <a
+                class="nav__link"
+                href="{{this.url}}"
+                {{#if this.children}}aria-haspopup="true" aria-expanded="false"{{/if}}
+                {{#ifContains this.target "_blank"}}target="_blank" rel="noopener noreferrer"{{/ifContains}}
+              >
+                {{this.text}}
+                {{#if this.children}}
+                <span class="nav__dropdown-icon" aria-hidden="true"></span>
+                {{/if}}
+              </a>
+              {{#if this.children}}
+              <ul class="nav__dropdown" role="menu">
+                {{#each this.children}}
+                <li class="nav__dropdown-item" role="menuitem">
+                  <a
+                    class="nav__dropdown-link"
+                    href="{{this.url}}"
+                    {{#ifContains this.target "_blank"}}target="_blank" rel="noopener noreferrer"{{/ifContains}}
+                  >
+                    {{this.text}}
+                  </a>
+                </li>
+                {{/each}}
+              </ul>
+              {{/if}}
+            </li>
+            {{/each}}
+          </ul>
+        </nav>
+        {{/if}}
+
+        {{#if cta}}
+        <a
+          class="header__cta"
+          href="{{cta.url}}"
+          {{#ifContains cta.target "_blank"}}target="_blank" rel="noopener noreferrer"{{/ifContains}}
+        >
+          {{cta.text}}
+          <span class="header__cta-icon" aria-hidden="true"></span>
+        </a>
+        {{/if}}
+
+        <!-- Burger (mobile + tablet) -->
+        <button class="header__burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-drawer">
+          <span class="header__burger-text" aria-hidden="true">Menu</span>
+          <span class="header__burger-lines" aria-hidden="true">
+            <span class="header__burger-line"></span>
+            <span class="header__burger-line"></span>
+            <span class="header__burger-line"></span>
+          </span>
+        </button>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Drawer (mobile + tablet) -->
+  <div class="header__drawer" id="mobile-drawer" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Navigation menu">
+
+    <div class="header__drawer-header">
+      <button class="header__drawer-close" aria-label="Close menu" tabindex="-1">
+        <span class="header__drawer-close-icon" aria-hidden="true"></span>
+      </button>
+    </div>
+
+    <div class="header__drawer-body">
+      {{#if menu}}
+      <nav class="nav nav--drawer" aria-label="Mobile navigation">
+        <ul class="nav__list">
+          {{#each menu}}
+          <li class="nav__item{{#if this.children}} nav__item--has-dropdown{{/if}}">
+            <a
+              class="nav__link"
+              href="{{this.url}}"
+              tabindex="-1"
+              {{#if this.children}}aria-haspopup="true" aria-expanded="false"{{/if}}
+              {{#ifContains this.target "_blank"}}target="_blank" rel="noopener noreferrer"{{/ifContains}}
+            >
+              {{this.text}}
+              {{#if this.children}}
+              <span class="nav__dropdown-icon" aria-hidden="true"></span>
+              {{/if}}
+            </a>
+            {{#if this.children}}
+            <ul class="nav__dropdown" role="menu">
+              {{#each this.children}}
+              <li class="nav__dropdown-item">
+                <a
+                  class="nav__dropdown-link"
+                  href="{{this.url}}"
+                  tabindex="-1"
+                  {{#ifContains this.target "_blank"}}target="_blank" rel="noopener noreferrer"{{/ifContains}}
+                >
+                  {{this.text}}
+                </a>
+              </li>
+              {{/each}}
+            </ul>
+            {{/if}}
+          </li>
+          {{/each}}
+        </ul>
+      </nav>
+      {{/if}}
+    </div>
+
+    <div class="header__drawer-footer">
+      {{#if cta}}
+      <a
+        class="header__cta header__drawer-cta"
+        href="{{cta.url}}"
+        tabindex="-1"
+        {{#ifContains cta.target "_blank"}}target="_blank" rel="noopener noreferrer"{{/ifContains}}
+      >
+        {{cta.text}}
+        <span class="header__cta-icon" aria-hidden="true"></span>
+      </a>
+      {{/if}}
+
+      {{!-- Mobile only - hidden on tablet --}}
+      {{#if businessTabs}}
+      <ul class="header__drawer-tabs header__drawer-footer-tabs">
+        {{#each businessTabs}}
+        <li class="header__drawer-tab{{#if this.active}} header__drawer-tab--active{{/if}}">
+          <a
+            class="header__drawer-tab-link"
+            href="{{this.url}}"
+            tabindex="-1"
+            {{#ifContains this.target "_blank"}}target="_blank" rel="noopener noreferrer"{{/ifContains}}
+          >
+            {{this.text}}
+          </a>
+        </li>
+        {{/each}}
+      </ul>
+      {{/if}}
+    </div>
+
+  </div>
+
 </header>

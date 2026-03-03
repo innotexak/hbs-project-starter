@@ -7,25 +7,26 @@ $font-default: arial, sans-serif;
 $white: #fff;
 $black: #000;
 $orange: #f1592a;
-$grey: #5b6770;
+$grey: #444;
 $purple: #5a4a8a;
+$purple-text: #5D508B;
 $olive: #c8c87a;
-$olive-light: #C6D8A6;
-$purple-light: #6c5d99;
+$olive-text: #a9a95f;
+$olive-secondary: #C6D8A6;
 $site-colors: (
 	'black': $black,
 	'white': $white,
 	'orange': $orange,
-	'grey': $grey,
 	'purple': $purple,
+	'purple-text': $purple-text,	
 	'olive': $olive,
-	'purple-light': $purple-light,
-	'olive-light': $olive-light,
+	'olive-text': $olive-text,
+	'olive-secondary':$olive-secondary
 ) !default;
+
+// Semantic aliases — header
 $primary: $purple;
 $secondary: $olive;
 $text-color: $black;
-$secondary-text-color: $black;
 $text-muted: $grey;
 $border-color: rgba($olive, 0.12);
-

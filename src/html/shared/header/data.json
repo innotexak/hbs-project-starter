@@ -1,23 +1,111 @@
 {
-	"logo": {
-		"src": "assets/images/logo.png",
-		"alternateText": "Logo image."
-	},
-	"menu": [
+  "logo": {
+    "src": "assets/images/full-logo.png",
+    "alternateText": "WindWish - Go to homepage"
+  },
+  "businessTabs": [
+    {
+      "text": "Large business",
+      "url": "/large-business",
+      "target": "_self",
+      
+      "active": true
+    },
+    {
+      "text": "Small business",
+      "url": "/small-business",
+      "icon": "assets/images/arrow-right-up.png",
+      "target": "_blank",
+      "active": false
+    }
+  ],
+  "search": {
+    "action": "/search",
+    "label": "Search site",
+    "placeholder": "Search site"
+  },
+  "menu": [
+    {
+      "text": "About us",
+      "url": "/about",
+      "target": "_self",
+      "children": [
+        {
+          "text": "About us overview",
+          "url": "/about/overview",
+          "target": "_self"
+        },
 		{
-			"text": "Home",
-			"url": "/",
-			"target": ""
+		"text": "Empowering the Transition",
+		"url": "/about/empowering-transition",
+		"target": "_self"			
 		},
 		{
-			"text": "About us",
-			"url": "about.html",
+			"text": "Our Leadership Team",
+			"url": "/about/our-leadership-team",
 			"target": "_self"
 		},
-		{
-			"text": "Contacts us",
-			"url": "services.html",
-			"target": "_blank"
+	
+        {
+          "text": "Our Values",
+          "url": "/about/our-values",
+          "target": "_self"
+        }
+      ]
+    },
+    {
+      "text": "Governance",
+      "url": "/governance",
+      "target": "_self"
+    },
+    {
+      "text": "Careers",
+      "url": "/careers",
+      "target": "_self"
+    },
+    {
+      "text": "Insights & Media",
+      "url": "/insights-media",
+      "target": "_self",
+      "children": [
+        {
+          "text": "Insights & Media overview",
+          "url": "/insights-media/overview",
+          "target": "_self"
+        },
+        {
+          "text": "News",
+          "url": "/insights-media/news",
+          "target": "_self"
+        },
+		  {
+          "text": "Press",
+          "url": "/insights-media/press",
+          "target": "_self"
+        },
+		  {
+          "text": "Media Library",
+          "url": "/insights-media/media-library",
+          "target": "_self"
+        },
+		  {
+		  "text": "Glossary",
+		  "url": "/insights-media/glossary",
+		  "target": "_self"
 		}
-	]
+		
+		
+      ]
+    },
+    {
+      "text": "Contact",
+      "url": "/contact",
+      "target": "_self"
+    }
+  ],
+  "cta": {
+    "text": "Customer Login",
+    "url": "/login",
+    "target": "_self"
+  }
 }
