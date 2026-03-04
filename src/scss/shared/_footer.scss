@@ -43,7 +43,7 @@
   justify-content: center;
   align-items: center;
   gap: 24px;
-margin-bottom:3em;
+  margin-bottom:2em;
 
 
   @include media-breakpoint-up(md) {
@@ -69,40 +69,43 @@ margin-bottom:3em;
 
 .footer__brand-wrapper{
   margin:5px 0;
-  
+  width: auto;
 }
 
 .footer__brand-home {
   display: inline-flex;
   text-decoration: none;
+ 
 }
 
 .footer__brand-logo {
   width: 64px;
   height: 76.77px;
   display: block;
+  margin-bottom:6px;
 }
 
 .footer__brand-tagline {
   font-size: 24px;
   font-family: "Bree Serif",  serif;
-  font-weight: 400;
+  font-weight: 500;
+  font-style: regular;
   line-height: 130%;
   color: $white;
+  letter-spacing: 1.5;
   margin: 0;
+  padding-bottom:10px;
 }
+
 .footer__brand-address {
   font-family: Barlow, sans-serif;
   font-weight: 400;
   font-style: normal;
-  font-size: 12px;         
+  font-size: 13px;         
   line-height: 1.5;        
   letter-spacing: 0;
-  color: $olive-light; 
-  white-space: pre-line;
+  color:$olive-light;
   margin: 0;
-  
-
 }
 
 // Social
@@ -347,11 +350,12 @@ margin-bottom:3em;
   font-family: Barlow, sans-serif;
   font-weight: 400;
   font-size: 14px;
+  font-style:regular;
   line-height: 1.4;
   letter-spacing: 0;
   color: $olive-light;
   margin: 0;
-  max-width: 640px;
+  max-width: 576px;
 }
 
 // Back to top button
