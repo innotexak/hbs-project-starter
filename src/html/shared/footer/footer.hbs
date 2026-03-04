@@ -1,7 +1,168 @@
-<footer class="footer">
-	<div class="wrap">
-		{{#if footer}}
-		<span class="footer__copy">{{footer}}</span>
-		{{/if}}
-	</div>
+<footer class="footer" role="contentinfo">
+  <!-- Top section: brand + social -->
+  <div class="footer__top">
+    <div class="wrap">
+      <div class="footer__top-inner">
+
+        <!-- Brand -->
+        <div class="footer__brand">
+          {{#if footer.brand.logo}}
+          <a href="/" class="footer__brand-home" aria-label="Go to homepage">
+            <img class="footer__brand-logo" src="{{footer.brand.logo.src}}" alt="{{footer.brand.logo.alternateText}}">
+          </a>
+          {{/if}}
+      <div class="footer__brand-wrapper">
+            {{#if footer.brand.tagline}}
+          <p class="footer__brand-tagline">{{footer.brand.tagline}}</p>
+          {{/if}}
+          {{#if footer.brand.address}}
+          <address class="footer__brand-address">
+                {{#each footer.brand.address}}
+                    {{this}}<br>
+                {{/each}}
+          </address>
+          {{/if}}
+      </div>
+        </div>
+
+        <!-- Social -->
+        {{#if footer.social}}
+        <div class="footer__social">
+          <p class="footer__social-label">{{footer.social.label}}</p>
+          <ul class="footer__social-list" role="list">
+            {{#each footer.social.items}}
+            <li class="footer__social-item">
+              <a class="footer__social-link" href="{{this.url}}" target="_blank" rel="noopener noreferrer" aria-label="{{this.label}}">
+                <img class="footer__social-icon" src="{{this.icon}}" alt="">
+              </a>
+            </li>
+            {{/each}}
+          </ul>
+        </div>
+        {{/if}}
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Divider -->
+  <div class="wrap">
+    <div class="footer__divider" role="separator" aria-hidden="true"></div>
+  </div>
+
+  <!-- Middle section: nav columns -->
+  <div class="footer__nav">
+    <div class="wrap">
+      <div class="footer__nav-inner">
+
+        <!-- Support + Talk columns (left group) -->
+        <div class="footer__nav-group">
+          <div class="foot__nav-group-left-wapper">
+          {{#if footer.support}}
+          <nav class="footer__nav-col" aria-label="{{footer.support.heading}}">
+            <p class="footer__nav-heading">{{footer.support.heading}}</p>
+            <ul class="footer__nav-list footer__nav-list--large" role="list">
+              {{#each footer.support.links}}
+              <li class="footer__nav-item">
+                <a class="footer__nav-link footer__nav-link--large" href="{{this.url}}">{{this.text}}</a>
+              </li>
+              {{/each}}
+            </ul>
+          </nav>
+          {{/if}}
+
+          {{#if footer.talk}}
+          <nav class="footer__nav-col" aria-label="{{footer.talk.heading}}">
+            <p class="footer__nav-heading">{{footer.talk.heading}}</p>
+            <ul class="footer__nav-list footer__nav-list--large" role="list">
+              {{#each footer.talk.links}}
+              <li class="footer__nav-item">
+                <a class="footer__nav-link footer__nav-link--large" href="{{this.url}}">{{this.text}}</a>
+              </li>
+              {{/each}}
+            </ul>
+          </nav>
+          {{/if}}
+          </div>
+        </div>
+
+        <!-- Global sites + Quick links + Site tools (right group) -->
+         <div class="foot__nav-group-right-wapper">
+        <div class="footer__nav-group">
+
+          {{#if footer.globalSites}}
+          <nav class="footer__nav-col" aria-label="{{footer.globalSites.heading}}">
+            <p class="footer__nav-heading">{{footer.globalSites.heading}}</p>
+            <ul class="footer__nav-list" role="list">
+              {{#each footer.globalSites.links}}
+              <li class="footer__nav-item">
+                <a class="footer__nav-link" href="{{this.url}}">{{this.text}}</a>
+              </li>
+              {{/each}}
+            </ul>
+          </nav>
+          {{/if}}
+
+          {{#if footer.quickLinks}}
+          <nav class="footer__nav-col" aria-label="{{footer.quickLinks.heading}}">
+            <p class="footer__nav-heading">{{footer.quickLinks.heading}}</p>
+            <ul class="footer__nav-list" role="list">
+              {{#each footer.quickLinks.links}}
+              <li class="footer__nav-item">
+                <a class="footer__nav-link" href="{{this.url}}">{{this.text}}</a>
+              </li>
+              {{/each}}
+            </ul>
+          </nav>
+          {{/if}}
+
+          {{#if footer.siteTools}}
+          <nav class="footer__nav-col" aria-label="{{footer.siteTools.heading}}">
+            <p class="footer__nav-heading">{{footer.siteTools.heading}}</p>
+            <ul class="footer__nav-list" role="list">
+              {{#each footer.siteTools.links}}
+              <li class="footer__nav-item">
+                <a class="footer__nav-link" href="{{this.url}}">{{this.text}}</a>
+              </li>
+              {{/each}}
+            </ul>
+          </nav>
+          {{/if}}
+
+        </div>
+</div>
+      </div>
+    </div>
+  </div>
+
+
+    <div class="wrap">
+   
+
+  <!-- Bottom section: copyright + legal + back to top -->
+  
+  <div class="footer__bottom">
+
+      <div class="footer__bottom-inner">
+
+        <div class="footer__bottom-left">
+          {{#if footer.bottom.copyright}}
+          <p class="footer__copyright">{{footer.bottom.copyright}}</p>
+          {{/if}}
+          {{#if footer.bottom.legal}}
+          <p class="footer__legal">{{footer.bottom.legal}}</p>
+          {{/if}}
+        </div>
+
+        {{#if footer.bottom.backToTop}}
+        <button class="footer__back-to-top" type="button" aria-label="Back to top of page">
+          <span class="footer__back-to-top-text">{{footer.bottom.backToTop}}</span>
+          <span class="footer__back-to-top-icon" aria-hidden="true"></span>
+        </button>
+        {{/if}}
+
+      </div>
+
+  </div>
+
 </footer>

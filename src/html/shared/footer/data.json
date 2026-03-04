@@ -1,3 +1,80 @@
 {
-	"footer": "@copyright"
+  "footer": {
+    "brand": {
+      "logo": {
+        "src": "assets/images/logo.png",
+        "alternateText": "WindWish"
+      },
+      "tagline": "Donec massa velit",
+     "address": [
+        "WindWish Ltd.",
+        "Kolschitzkygasse 14-18",
+        "1040 Wien, Austria"
+    ]
+    },
+    "social": {
+      "label": "Follow us",
+      "items": [
+        { "label": "LinkedIn", "url": "#", "icon": "assets/images/linkedin.png" },
+        { "label": "Facebook", "url": "#", "icon": "assets/images/facebook.png" },
+        { "label": "X (Twitter)", "url": "#", "icon": "assets/images/twitter.png" },
+        { "label": "Instagram", "url": "#", "icon": "assets/images/instagram.png" },
+        { "label": "YouTube", "url": "#", "icon": "assets/images/youtube.png" }
+      ]
+    },
+    "support": {
+      "heading": "Need help or support?",
+      "links": [
+        { "text": "Billing", "url": "#" },
+        { "text": "Metering", "url": "#" },
+        { "text": "Change of contract", "url": "#" }
+      ]
+    },
+    "talk": {
+      "heading": "Want to talk to us?",
+      "links": [
+        { "text": "Customers", "url": "#" },
+        { "text": "Generators", "url": "#" },
+        { "text": "Partners", "url": "#" }
+      ]
+    },
+    "globalSites": {
+      "heading": "Global sites",
+      "links": [
+        { "text": "Group Site", "url": "#" },
+        { "text": "Australia", "url": "#" },
+        { "text": "UK", "url": "#" },
+        { "text": "UK Business", "url": "#" },
+        { "text": "US", "url": "#" }
+      ]
+    },
+    "quickLinks": {
+      "heading": "Quick links",
+      "links": [
+        { "text": "Contact", "url": "#" },
+        { "text": "Media enquiries", "url": "#" },
+        { "text": "Glossary", "url": "#" },
+        { "text": "Regulatory Information", "url": "#" },
+        { "text": "Emergency Contacts", "url": "#" },
+        { "text": "Fuel mix", "url": "#" }
+      ]
+    },
+    "siteTools": {
+      "heading": "Site tools",
+      "links": [
+        { "text": "Privacy", "url": "#" },
+        { "text": "Policies", "url": "#" },
+        { "text": "UK Modern Slavery Act", "url": "#" },
+        { "text": "Sitemap", "url": "#" },
+        { "text": "Terms", "url": "#" },
+        { "text": "Accessibility", "url": "#" },
+        { "text": "Modify Cookie Preferences", "url": "#" }
+      ]
+    },
+    "bottom": {
+      "copyright": "(C) 2025 - WindWish Ltd.",
+      "legal": "Maecenas dictum lacinia nisl, at accumsan lacus finibus vel. Morbi dignissim, leo ac facilisis pellentesque, purus turpis dapibus nibh, at suscipit orci enim vel arcu. Phasellus dolor mi, feugiat at neque ut, fringilla sagittis dolor. Aenean finibus leo non erat maximus fermentum.",
+      "backToTop": "Back to top"
+    }
+  }
 }
