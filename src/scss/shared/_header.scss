@@ -333,17 +333,16 @@
   display: inline-block;
   width: 16px;
   height: 16px;
-  background: url("../assets/svg/ico-chevron-outline-down.svg") center / contain no-repeat;
   transition: transform 0.2s ease;
 }
 
 .nav__dropdown {
   display: none;
   position: absolute;
-  top: calc(100% + 10px);
+  top: calc(100% + -5px);
   left: 0;
   min-width: 200px;
-  background-color: $olive-light;
+  background-color: $white;
   border: 1px solid $border-color;
   border-radius: 8px;
   box-shadow: 0 8px 24px rgba($black, 0.1);
