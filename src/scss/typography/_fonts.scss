@@ -5,3 +5,8 @@
 // usage: @include webFont(Helvetica, HelveticaNeueLTStd-Th, 300);
 // in mixin call add three parameters (font name, font file name, font-weight, [font-style])
 // font-style is optional
+
+// Barlow font registration
+@include webFont("Barlow","Barlow-Light",300);
+@include webFont("Barlow","Barlow-Regular",400);
+@include webFont("Barlow","Barlow-Bold",700);
