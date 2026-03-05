@@ -55,6 +55,7 @@
 
 // Brand
 .footer__brand {
+  width: 100%;
   display: flex;
   flex-flow: row;
   justify-content: space-between;
@@ -126,9 +127,10 @@
 }
 
 .footer__social-label {
-  font-size: 13px;
+  width: 60px;
+  font-size: 12px;
   color: $olive-light;
-  padding-right: 8px;;
+
   
 }
 
