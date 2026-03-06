@@ -2,17 +2,243 @@
 // ------------------------------------------------------------------------------
 
 @use "../abstracts" as *;
+@use "sass:color";
+
+.banner {
+  background-color: $purple;
+  color: $white;
+  display:flex;
+  height: 768px;
+  width: 100%;
+  justify-content: center;
+  overflow: visible;
+  min-height: 320px;
+
+
+  @include media-breakpoint-up(md) {
+	height: 800%;
+  }
+
+  @include media-breakpoint-up(lg) {
+	height: 960px;
+    overflow: hidden;
+
+  }
+}
+
+.banner__wrap{
+  position:relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%; 
+}
+
+.banner__inner {
+	width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 768px;
+
+
+  @include media-breakpoint-up(md){
+	width: 100%;
+	height: 100%;
+	justify-content: space-between;
+	
+
+  }
+
+  @include media-breakpoint-up(lg) {
+    flex-direction: row;
+    align-items: center;
+	height: 960px;
+    justify-content: space-between;
+    min-height: 480px;
+
+	  > :first-child {
+      	margin-left: 237px;
+	    display: block;
+    	padding: 0 15px;
+    }
+  }
+  }
+
+
+// ------------------------------------------------------------------------------
+// Content
+// ------------------------------------------------------------------------------
 
 .banner__content {
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	padding: 20px;
-	background-color: rgba($white, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 20px;
+  height: 528px;
+  min-width: 375px;
+  text-align: center;
+
+  @include media-breakpoint-up(md) {
+	margin-top:120px
+  }
+
+   @include media-breakpoint-up(lg) {
+	width: 600px;
+    text-align: left;
+	display:block;
+    flex-shrink: 0;
+  }
 }
-.banner__title {
-	font-size: 24px;
+
+.banner__heading {
+	font-family: "Bree Serif", sans-serif;
+	font-weight: 400;
+	font-style: regular;
+	font-size: 48px;
+	letter-spacing: 0;
+	padding: 4px ;
+
+  @include media-breakpoint-up(md) {
+    font-size: 56px;
+	line-height: 66px;
+  }
+
+  @include media-breakpoint-up(lg) {
+    font-size: 72px;
+	line-height: 80px;
+	padding:0;
+  }
 }
-.banner__holder {
-	position: relative;
+
+.banner__body {
+	font-family: Barlow, sans-serif;
+  	color: $white;
+	font-weight: 400;
+  	margin: 0;
+    font-size: 20px;
+    line-height: 140%;
+	padding:15px 20px;
+
+  @include media-breakpoint-up(md) {
+    font-size: 20px;
+	width: 592px;
+	height: 84px;
+	padding: 34px 33px 33px;
+    line-height: 140%;
+
+  }
+
+    @include media-breakpoint-up(lg) {
+    font-size: 20px;
+	line-height: 140%;
+	padding: 60px 0 32px;
+	height: 173px;
+
+  }
+}
+
+// CTA button
+.banner__cta {
+	font-family: Barlow, sans-serif;
+	font-weight: 500;
+	font-style: medium;
+	font-size: 16px;
+	line-height: 100%;
+	letter-spacing: 0%;
+	padding:5px 5px 5px 15px;
+	display: inline-flex;
+	gap:12px;
+	align-items: center;
+	border-radius: 50px;
+	background-color: $white;
+	color: $purple;
+	transition: background-color 0.2s ease, border-color 0.2s ease;
+
+
+  
+
+  @include hover {
+    background-color: rgba($white, 0.85);
+    border-color: $white;
+  }
+}
+
+.banner__cta-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: $purple;
+  color: $white;
+  background-image: url("../assets/images/arrow-right-purple.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 16px;
+  flex-shrink: 0;
+  transition: background-color 0.2s ease;
+}
+
+// ------------------------------------------------------------------------------
+// Media / circle image
+// ------------------------------------------------------------------------------
+
+.banner__media {
+  width: 100%;
+  position:relative;
+  height: 240px;
+
+  @include media-breakpoint-up(md){
+	width: 100%;
+	height: 100%;
+	  flex-shrink: 0;
+  }
+
+  @include media-breakpoint-up(lg) {
+	width: 690px;
+	height: 100%;
+    flex-shrink: 0;
+  }
+}
+
+.banner__media-circle {
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+   @include media-breakpoint-up(md) {
+	height: 382px;
+    align-self: center;
+  }
+
+  @include media-breakpoint-up(lg) {
+	width: 100%;
+	height: 100%;
+    align-self: center;
+  }
+}
+
+.banner__image {
+  width: 100%;
+  height: 100%;
+  border-radius: 400px 400px 0 0;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+
+  @include media-breakpoint-up(md){
+	 width: 768px;
+  	height: 382px;
+	border-radius: 400px 400px 0 0 ;
+  }
+
+  
+  @include media-breakpoint-up(lg){
+	 width: 100%;
+  	height: 100%;
+	border-radius: 400px  0 0 400px;
+  }
 }

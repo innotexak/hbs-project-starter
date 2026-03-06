@@ -1,17 +1,40 @@
-<section class="banner">
-	<div class="wrap">
-		<div class="banner__holder">
-			<div class="banner__content">
-				{{#if title}}
-				<h2 class="banner__title">{{title}}</h2>
-				{{/if}}
-				{{#if subtitle}}
-				<h2 class="banner__subtitle">{{subtitle}}</h2>
-				{{/if}}
-			</div>
-			{{#if image}}
-			{{> picture this}}
-			{{/if}}
-		</div>
-	</div>
+<section class="banner" aria-label="{{heading}}">
+  <div class="banner__wrap">
+    <div class="banner__inner">
+
+      <div class="banner__content">
+        {{#if heading}}
+        <h1 class="banner__heading">{{heading}}</h1>
+        {{/if}}
+
+        {{#if body}}
+        <p class="banner__body">{{body}}</p>
+        {{/if}}
+
+        {{#if cta}}
+        <a
+          class="banner__cta"
+          href="{{cta.url}}"
+          {{#ifContains cta.target "_blank"}}target="_blank" rel="noopener noreferrer"{{/ifContains}}
+        >
+          {{cta.text}}
+          <span class="banner__cta-icon" aria-hidden="true"></span>
+        </a>
+        {{/if}}
+      </div>
+
+      {{#if image}}
+      <div class="banner__media">
+        <div class="banner__media-circle">
+          <img
+            class="banner__image"
+            src="{{image.src}}"
+            alt="{{image.alternateText}}"
+          >
+        </div>
+      </div>
+      {{/if}}
+
+    </div>
+  </div>
 </section>

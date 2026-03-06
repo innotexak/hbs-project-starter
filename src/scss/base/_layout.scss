@@ -19,11 +19,19 @@ body {
 .wrap {
 	margin: 0 auto;
 	max-width: 1280px;
-	padding: 0 30px;
+	padding: 0;
 	width: 100%;
-	// @include media-breakpoint-up(xl) {
-	// 	max-width: fluid(1280px);
-	// }
+
+	@include media-breakpoint-up(md){
+		padding: 0;
+		height: auto;
+
+	}
+
+	@include media-breakpoint-up(lg){
+		padding: 0 30px;
+		height: auto;
+	}
 }
 
 .image {

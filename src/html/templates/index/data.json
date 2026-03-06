@@ -9,22 +9,11 @@
 			">>": "shared/footer/data.json"
 		},
 	
+
 		"sections": [
 			{
 				"moduleAlias": "banner",
 				">>": "modules/banner/data.json"
-			},
-			{
-				"moduleAlias":"basic-block",
-				">>": "modules/basic-block/data.json"
-			},
-			{
-				"moduleAlias": "splide",
-				">>": "modules/splide/data.json"
-			},
-			{
-				"moduleAlias": "rte",
-				">>": "modules/rte/data.json"
 			}
 		]
 	}
