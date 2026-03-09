@@ -16,7 +16,10 @@
 
 
   @include media-breakpoint-up(md) {
-	height: 800%;
+	width: 768;
+	height: 800;
+	opacity: 1;
+
   }
 
   @include media-breakpoint-up(lg) {
@@ -72,19 +75,20 @@
 .banner__content {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: flex-start;
   align-items: center;
-  gap: 20px;
   height: 528px;
   min-width: 375px;
   text-align: center;
+  padding-top:96px;
 
   @include media-breakpoint-up(md) {
-	margin-top:120px
-  }
+	padding-top:96px
+  }	
 
    @include media-breakpoint-up(lg) {
 	width: 600px;
+	padding-top:96px;
     text-align: left;
 	display:block;
     flex-shrink: 0;
@@ -96,8 +100,9 @@
 	font-weight: 400;
 	font-style: regular;
 	font-size: 48px;
+	line-height: 60px;
 	letter-spacing: 0;
-	padding: 4px ;
+	padding: 0 4px ;
 
   @include media-breakpoint-up(md) {
     font-size: 56px;
@@ -107,24 +112,24 @@
   @include media-breakpoint-up(lg) {
     font-size: 72px;
 	line-height: 80px;
-	padding:0;
+	    padding-top: 59px;
   }
 }
 
 .banner__body {
 	font-family: Barlow, sans-serif;
-  	color: $white;
+  	color: $white;	
 	font-weight: 400;
   	margin: 0;
     font-size: 20px;
     line-height: 140%;
-	padding:15px 20px;
+	padding:32px 30px;
 
   @include media-breakpoint-up(md) {
     font-size: 20px;
 	width: 592px;
-	height: 84px;
-	padding: 34px 33px 33px;
+	height: 151px;
+	padding: 34px 10px;
     line-height: 140%;
 
   }
@@ -140,28 +145,28 @@
 
 // CTA button
 .banner__cta {
+	width: 164px;
+	height: 42px;
 	font-family: Barlow, sans-serif;
-	font-weight: 500;
+	font-weight: 500;	
 	font-style: medium;
 	font-size: 16px;
 	line-height: 100%;
 	letter-spacing: 0%;
-	padding:5px 5px 5px 15px;
+	padding:5px 5px 5px 20px;
 	display: inline-flex;
-	gap:12px;
+	gap: 10px;
 	align-items: center;
 	border-radius: 50px;
 	background-color: $white;
 	color: $purple;
 	transition: background-color 0.2s ease, border-color 0.2s ease;
-
-
-  
-
+	opacity: 1;
   @include hover {
     background-color: rgba($white, 0.85);
     border-color: $white;
   }
+
 }
 
 .banner__cta-icon {
@@ -204,20 +209,27 @@
 }
 
 .banner__media-circle {
+	width: 375px;
+	height: 240px;
+	opacity: 1;
   border-radius: 50%;
-  width: 100%;
-  height: 100%;
   object-fit: cover;
 
    @include media-breakpoint-up(md) {
+	width: 768px;
 	height: 382px;
-    align-self: center;
+	opacity: 1;
+	gap: 10px;
+	border-top-left-radius: 300px;
+	border-top-right-radius: 300px;
+	margin-top:65px
   }
 
   @include media-breakpoint-up(lg) {
-	width: 100%;
-	height: 100%;
-    align-self: center;
+width: 690px;
+height: 960px;
+opacity: 1;
+	margin-top:0
   }
 }
 
@@ -230,9 +242,13 @@
   display: block;
 
   @include media-breakpoint-up(md){
-	 width: 768px;
-  	height: 382px;
-	border-radius: 400px 400px 0 0 ;
+	width: 768px;
+	height: 382px;	
+	opacity: 1;
+	gap: 10px;
+	border-top-left-radius: 300px;
+	border-top-right-radius: 300px;
+
   }
 
   

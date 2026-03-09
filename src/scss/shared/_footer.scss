@@ -45,9 +45,12 @@
   @include media-breakpoint-up(md) {
     width: 720px;
     height: 188px;
-
-  
   }
+ 
+  @include media-breakpoint-up(lg){
+    width: 1200px;
+    margin:0 auto;
+  } 
 }
 
 .footer__top-inner {
@@ -67,6 +70,10 @@
     justify-content: space-between;
    
   }
+  
+  // @include media-breakpoint-up(lg){
+
+  // }
 }
 
 // Brand
@@ -202,9 +209,15 @@
 // ------------------------------------------------------------------------------
 
 .footer__divider {
-  height: 3px;
+  height: 2px;
   background-color: rgba($white, 0.2);
   margin:32px 0;
+
+  @include media-breakpoint-up(lg){
+    width: 1200px;
+    margin:56px auto 36px;
+
+  }
 }
 
 // ------------------------------------------------------------------------------
@@ -228,19 +241,23 @@
           }
 
     > :nth-child(2) {
-      flex: 1;      
+      flex: 1; 
+       
     }
   }
 
     @include media-breakpoint-up(lg) {
         gap: 24px;
+        margin: 0 auto;
+        width: 1200px;
     }
       > :first-child {
             flex: 0 0 47%;  
           }
 
     > :nth-child(2) {
-      flex: 1;      
+      flex: 1;  
+        
     }
 
 }
@@ -286,13 +303,28 @@
     justify-content: space-between;
 
     .footer__nav-group{ 
-      width: 100%;
+          width: 100%;
           display: flex;
           justify-content: space-between;
     }
+
+    
   }
 
-  
+    @include media-breakpoint-up(lg){
+    display: flex;
+    justify-content: flex-end;
+      gap:60px;
+    .footer__nav-group{ 
+          width: 600px;
+          gap:20px;
+          display: flex;
+          height: 228px;
+          justify-content: space-between;
+    }
+
+    
+  }
 
 }
 // Nav columns
@@ -386,6 +418,11 @@
     gap: 10px;
     margin-top:20px;
    
+  }
+
+  @include media-breakpoint-up(lg){
+      width: 1200px;
+     margin: 32px auto;
   }
 }
 

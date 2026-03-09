@@ -14,6 +14,14 @@
 			{
 				"moduleAlias": "banner",
 				">>": "modules/banner/data.json"
+			},
+			{
+				"moduleAlias": "richtext",
+				">>": "modules/richtext/data.json"
+			},
+			{
+				"moduleAlias": "cards",
+				">>": "modules/cards/data.json"
 			}
 		]
 	}

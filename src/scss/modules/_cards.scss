@@ -1,0 +1,164 @@
+// ----------  cards
+// ------------------------------------------------------------------------------
+
+@use "../abstracts" as *;
+@use "sass:color";
+
+.cards {
+  background-color: $white;
+   padding: 56px 24px;
+
+
+  @include media-breakpoint-up(md) {
+    padding: 60px 0;
+  }
+
+  @include media-breakpoint-up(lg) {
+    padding: 72px 0;
+  }
+}
+
+.cards__list {
+  list-style: none;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+  width: 375px;
+  height: auto;
+  opacity: 1;
+
+  @include media-breakpoint-up(md) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    align-items: start;
+  }
+}
+
+// ------------------------------------------------------------------------------
+// Card
+// ------------------------------------------------------------------------------
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+// Image
+.card__media {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border-radius: 12px;
+  overflow: hidden;
+
+  @include media-breakpoint-up(lg) {
+    aspect-ratio: 4 / 3;
+  }
+}
+
+.card__image {
+  width: 327px;
+height: 210px;
+opacity: 1;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.3s ease;
+
+  @include hover {
+    transform: scale(1.04);
+  }
+}
+
+// Content
+.card__content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+}
+
+.card__heading {
+  font-size: 20px;
+  font-weight: 700;
+  color: $purple;
+  line-height: 1.3;
+  width: 327px;
+height: auto;
+opacity: 1;
+  margin: 0;
+
+  @include media-breakpoint-up(lg) {
+    font-size: 22px;
+  }
+}
+
+.card__body {
+  color: $grey;
+  margin: 0;
+  font-family: Barlow, sans-serif;
+  font-weight: 400;
+  font-style: regular;
+  width: 327px;
+  height: auto;
+  opacity: 1;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0%;
+
+
+
+
+  @include media-breakpoint-up(lg) {
+    font-size: 15px;
+  }
+}
+
+// CTA
+.card__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: auto;
+  background-color: $purple;
+  border-radius: 50px;
+  color: $white;
+  text-decoration: none;
+  align-self: flex-start;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+font-family: Barlow, sans-serif;
+font-weight: 500;
+font-style: medium;
+font-size: 16px;
+line-height: 100%;
+letter-spacing: 0%;
+width: 75px;
+height: 19px;
+opacity: 1;
+
+
+  @include hover {
+    background-color: rgba($purple, 0.06);
+    border-color: $purple;
+  }
+}
+
+.card__cta-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  // border-radius: 50%;
+  background-color: $olive;
+  background-image: url("../assets/images/arrow-right.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 12px;
+  flex-shrink: 0;
+  font-size:16px;
+opacity: 1;
+border-radius: 20px;
+
+}

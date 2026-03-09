@@ -269,18 +269,22 @@
     display: inline-flex;
     font-family: Barlow, sans-serif;
     align-items: center;
-    gap: 27px;
-    padding: 6px 4px 7px 5px;
     background-color: $primary;
     color: $white;
     font-size: 16px;
     font-weight: 500;
-    border-radius: 50px;
     text-decoration: none;
     line-height: 100%;
     white-space: nowrap;
     flex-shrink: 0;
     transition: background-color 0.2s ease;
+    width: 178px;
+    height: 42px;
+    opacity: 1;
+    padding: 5px 5px 5px 20px;
+    gap: 10px;
+    border-radius: 100px;
+
 
     @include hover {
       background-color: color.adjust($primary, $lightness: -8%);
