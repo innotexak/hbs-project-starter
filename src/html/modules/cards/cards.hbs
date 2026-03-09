@@ -1,0 +1,46 @@
+<section class="cards">
+  <div class="wrap">
+    {{#if items}}
+    <ul class="cards__list" role="list">
+      {{#each items}}
+      <li class="cards__item">
+        <article class="card">
+
+          {{#if this.image}}
+          <div class="card__media">
+            <img
+              class="card__image"
+              src="{{this.image.src}}"
+              alt="{{this.image.alternateText}}"
+            >
+          </div>
+          {{/if}}
+
+          <div class="card__content">
+            {{#if this.heading}}
+            <h3 class="card__heading">{{this.heading}}</h3>
+            {{/if}}
+
+            {{#if this.body}}
+            <p class="card__body">{{this.body}}</p>
+            {{/if}}
+
+            {{#if this.cta}}
+            <a
+              class="card__cta"
+              href="{{this.cta.url}}"
+              {{#ifContains this.cta.target "_blank"}}target="_blank" rel="noopener noreferrer"{{/ifContains}}
+            >
+              {{this.cta.text}}
+              <span class="card__cta-icon" aria-hidden="true"></span>
+            </a>
+            {{/if}}
+          </div>
+
+        </article>
+      </li>
+      {{/each}}
+    </ul>
+    {{/if}}
+  </div>
+</section>

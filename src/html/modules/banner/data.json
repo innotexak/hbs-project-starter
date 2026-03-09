@@ -1,14 +1,13 @@
 {
-	"title": "Banner Title",
-	"subtitle": "Banner Subtitle",
-	"image": {
-		"url": "assets/images/demo.jpg",
-		"alternateText": "Image desktop",
-		"width": 1700,
-		"height": 650
-	},
-	"mobileImage": {
-		"url": "assets/images/mobile.jpg",
-		"alternateText": "Image mobile"
-	}
+  "heading": "Maecenas \n molestie dolor",
+  "body": "Mauris sit amet quam massa. Praesent varius ipsum sagittis, tincidunt ex eget, ullamcorper nibh. Pellentesque cursus ultrices eros, elementum hendrerit lectus finibus.",
+  "cta": {
+    "text": "Find out more",
+    "url": "#",
+    "target": "_self"
+  },
+  "image": {
+    "src": "assets/images/hero-image.png",
+    "alternateText": "Woman with hair blowing in the wind outdoors"
+  }
 }

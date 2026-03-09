@@ -12,22 +12,71 @@
   border-bottom: 1.2px solid $border-color;
   position: relative;
   z-index: 100;	
+  width: 375px;
+  height: 127px;
   font-family: Barlow, sans-serif;
+
+  @include media-breakpoint-up(md){
+    width: 768px;
+    height: 162px;
+    margin:0 auto;
+  }
+
+  @include media-breakpoint-up(lg){
+      width: 1200px;
+       margin:0 auto;
+  }
 }
 
+.header__wrap{
+	margin: 0 auto;
+	max-width: 1280px;
+	padding: 0 15px;
+	width: 100%;
+
+  @include media-breakpoint-up(md){
+      padding: 0 24px;
+      max-width: 768px;
+
+  }
+
+    @include media-breakpoint-up(lg){
+      padding: 0;
+      max-width: 1200px;
+  }
+
+}
 
 .header__topbar {
   border-bottom: 1.2px solid $border-color;
-  width: 100%;
+  width: 327px;
   margin: 0 auto;
+
+  
+  @include media-breakpoint-up(md){
+    width: 720px;
+     margin: 0 auto;
+     padding:0 0 2px 5px;
+  }
+
+   @include media-breakpoint-up(lg){
+    width: 1200px;
+     margin: 0 auto;
+  }
 }
 
 .header__topbar-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 0 5px;
+  padding: 0 0 4px;
   gap: 16px;
+
+  @include media-breakpoint-up(md){
+  padding: 0 0 4px
+  }
+
+
 }
 
 // Business tabs
@@ -51,7 +100,7 @@
 
 .header__tab {
   position: relative;
-  width: 161px;
+  min-width: 142px;
 
 }
 
@@ -98,6 +147,10 @@
   @include media-breakpoint-up(md) {
     width: 280px;
   }
+
+    @include media-breakpoint-up(md) {
+    width: 280px;
+  }
 }
 
 .header__search-form {
@@ -110,14 +163,17 @@
 
   @include media-breakpoint-up(md) {
     width: 100%;
+    gap:10px
   }
 }
 
 .header__search-input {
   flex: 1;
+  font-family: Barlow, sans-serif;
   border: none;
   outline: none;
-  font-size: 13px;
+  padding-left: 13px;
+  font-size: 14px;
   height: 40px;
   color: $text-color;
   background: transparent;
@@ -162,13 +218,23 @@
 // ------------------------------------------------------------------------------
 
 .header__main {
-  padding: 16px 0;
+  padding: 15px 0;
+
+
+  @include media-breakpoint-up(md){
+  padding: 23px 0;
+  }
 }
 
 .header__container {
+  padding: 0 9px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  @include media-breakpoint-up(md){
+    padding: 0;
+  }
 
 }
 
@@ -201,18 +267,24 @@
 
   @include media-breakpoint-up(lg) {
     display: inline-flex;
+    font-family: Barlow, sans-serif;
     align-items: center;
-    gap: 10px;
-    padding: 10px 20px;
     background-color: $primary;
     color: $white;
-    font-size: 14px;
-    font-weight: 400;
-    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 500;
     text-decoration: none;
+    line-height: 100%;
     white-space: nowrap;
     flex-shrink: 0;
     transition: background-color 0.2s ease;
+    width: 178px;
+    height: 42px;
+    opacity: 1;
+    padding: 5px 5px 5px 20px;
+    gap: 10px;
+    border-radius: 100px;
+
 
     @include hover {
       background-color: color.adjust($primary, $lightness: -8%);
@@ -224,8 +296,8 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 26px;
-  height: 26px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   background-color: $secondary;
   background-image: url("../assets/images/arrow-right.png");
@@ -242,10 +314,12 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  justify-content: space-between  ;
   background: none;
   border: none;
   cursor: pointer;
-  padding: 8px;
+  padding: 6px 0;
+
 
   @include media-breakpoint-up(lg) {
     display: none;
@@ -254,7 +328,9 @@
 
 .header__burger-text {
   display: block;
-  font-size: 14px;
+  font-family: Barlow, sans-serif;
+  font-size: 16px;
+  font-style: regular;
   font-weight: 400;
   color: $text-color;
 
@@ -266,8 +342,8 @@
 .header__burger-lines {
   display: flex;
   flex-direction: column;
-  gap: 5px;
-  width: 24px;
+  gap: 8px;
+  width: 40px;
 }
 
 .header__burger-line {
@@ -302,16 +378,19 @@
 
 .nav__item {
   position: relative;
+    gap: 24px;
 }
 
 .nav__link {
   display: inline-flex;
   align-items: center;
-  gap: 4px;
-  padding: 8px 14px;
-  font-size: 13px;
-  font-weight: 600;
- color: color.adjust($purple, $lightness: -6%);
+  justify-content:flex;
+  gap: 5px;
+  font-family: Barlow, sans-serif;
+  padding: 1.5px 13px 1.5px 18px;
+  font-size: 14px;
+  font-weight: 700;
+  color: color.adjust($purple, $lightness: -6%);
   line-height: 140%;
   text-decoration: none;
   border-radius: 4px;
@@ -331,8 +410,8 @@
 
 .nav__dropdown-icon {
   display: inline-block;
-  width: 16px;
-  height: 16px;
+  width: 8.5px;
+  height: 5px;
   transition: transform 0.2s ease;
 }
 

@@ -1,0 +1,44 @@
+{
+    "items": [
+      {
+        "image": {
+          "src": "assets/images/card-image-1.png",
+          "alternateText": "Train on a bridge in the city"
+        },
+        "heading": "Nullam placerat dolor lobortis",
+        "body": "Etiam sit amet aliquam nisi. Etiam sed libero velit. Nulla facilisi Pellentesque tortor elit, semper non iaculis et, tempor accumsan magna.",
+        "cta": {
+          "text": "Read more",
+          "url": "#",
+          "target": "_self"
+        }
+      },
+      {
+        "image": {
+          "src": "assets/images/card-image-2.png",
+          "alternateText": "Bicycle leaning against a graffiti wall"
+        },
+        "heading": "Donec arcu metus, maximus ut metus id, imperdiet sagittis",
+        "body": "Aenean in ex est. Nam pharetra fringilla diam at sodales. Pellentesque ut sodales sem. Integer quis metus finibus, elementum felis et, ullamcorper sapien. Etiam sit amet aliquam nisi.",
+        "cta": {
+          "text": "Read more",
+          "url": "#",
+          "target": "_self"
+        }
+      },
+      {
+        "image": {
+          "src": "assets/images/card-image-3.png",
+          "alternateText": "Person skateboarding on a concrete surface"
+        },
+        "heading": "Sed in sollicitudin orci",
+        "body": "Pellentesque eget condimentum ipsum. Aenean in ex est. Nam pharetra fringilla diam at sodales.",
+        "cta": {
+          "text": "Read more",
+          "url": "#",
+          "target": "_self"
+        }
+      }
+    ]
+  
+}
