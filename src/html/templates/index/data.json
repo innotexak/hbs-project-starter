@@ -15,6 +15,7 @@
 				"moduleAlias": "banner",
 				">>": "modules/banner/data.json"
 			},
+
 			{
 				"moduleAlias": "richtext",
 				">>": "modules/richtext/data.json"
@@ -22,6 +23,14 @@
 			{
 				"moduleAlias": "cards",
 				">>": "modules/cards/data.json"
+			},
+			{
+				"moduleAlias": "blocktext",
+				">>": "modules/blocktext/data.json"
+			},
+				{
+				"moduleAlias": "testimonials",
+				">>": "modules/testimonials/data.json"
 			}
 		]
 	}

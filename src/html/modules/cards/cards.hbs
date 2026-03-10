@@ -25,7 +25,9 @@
             <p class="card__body">{{this.body}}</p>
             {{/if}}
 
-            {{#if this.cta}}
+          
+          </div>
+  {{#if this.cta}}
             <a
               class="card__cta"
               href="{{this.cta.url}}"
@@ -35,8 +37,6 @@
               <span class="card__cta-icon" aria-hidden="true"></span>
             </a>
             {{/if}}
-          </div>
-
         </article>
       </li>
       {{/each}}

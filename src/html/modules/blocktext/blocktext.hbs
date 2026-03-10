@@ -1,0 +1,25 @@
+
+	<img class="divider" src="assets/images/divider.png" alt="divider"/>
+
+<section class="blocktext">
+	
+  <div class="blocktext__wrapper">
+    <div class="blocktext__content">
+
+      {{#if title}}
+        <div class="blocktext__button-wrapper">
+          <button class="blocktext__content-button">
+            {{title}}
+          </button>
+        </div>
+      {{/if}}
+
+      {{#if content}}
+        <p class="blocktext__content-text">
+          {{content}}
+        </p>
+      {{/if}}
+
+    </div>
+  </div>
+</section>

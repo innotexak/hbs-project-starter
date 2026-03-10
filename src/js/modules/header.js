@@ -5,13 +5,37 @@ const header = {
 	burger: null,
 	drawer: null,
 	drawerClose: null,
-	dropdownToggles: null,
+	drawerNavSlot: null,
+	nav: null,
+	navOriginalParent: null,
+	navNextSibling: null,
 
 	get focusableElements() {
 		return this.drawer.querySelectorAll('a, button');
 	},
 
+	moveNavToDrawer() {
+		// Remember original position so we can restore it
+		this.navOriginalParent = this.nav.parentElement;
+		this.navNextSibling = this.nav.nextElementSibling;
+		this.drawerNavSlot.appendChild(this.nav);
+		// Make links focusable inside drawer
+		this.nav.querySelectorAll('a').forEach(el => el.setAttribute('tabindex', '0'));
+	},
+
+	restoreNav() {
+		// Put nav back between logo and CTA
+		if (this.navNextSibling) {
+			this.navOriginalParent.insertBefore(this.nav, this.navNextSibling);
+		} else {
+			this.navOriginalParent.appendChild(this.nav);
+		}
+		// Remove tabindex so links aren't reachable while drawer is closed
+		this.nav.querySelectorAll('a').forEach(el => el.setAttribute('tabindex', '-1'));
+	},
+
 	openDrawer() {
+		this.moveNavToDrawer();
 		this.drawer.classList.add('is-open');
 		this.drawer.setAttribute('aria-hidden', 'false');
 		this.burger.setAttribute('aria-expanded', 'true');
@@ -25,59 +49,39 @@ const header = {
 		this.drawer.setAttribute('aria-hidden', 'true');
 		this.burger.setAttribute('aria-expanded', 'false');
 		this.focusableElements.forEach(el => el.setAttribute('tabindex', '-1'));
+		this.restoreNav();
 		this.burger.focus();
 		document.body.style.overflow = '';
-	},
-
-	toggleDropdown(item) {
-		const isOpen = item.classList.contains('is-open');
-
-		// close all open dropdowns first
-		this.dropdownToggles.forEach(toggle => {
-			toggle.closest('.nav__item--has-dropdown').classList.remove('is-open');
-			toggle.setAttribute('aria-expanded', 'false');
-		});
-
-		// open clicked one if it was closed
-		if (!isOpen) {
-			item.classList.add('is-open');
-			item.querySelector('.nav__link').setAttribute('aria-expanded', 'true');
-		}
 	},
 
 	init() {
 		this.burger = document.querySelector('.header__burger');
 		this.drawer = document.getElementById('mobile-drawer');
 		this.drawerClose = document.querySelector('.header__drawer-close');
-		this.dropdownToggles = document.querySelectorAll('.nav--drawer .nav__item--has-dropdown > .nav__link');
+		this.drawerNavSlot = document.querySelector('.drawer-nav-slot');
+		this.nav = document.querySelector('.header__nav');
 
-		if (!this.burger || !this.drawer) return;
+		if (!this.burger || !this.drawer || !this.nav) return;
 
-		// burger open
+		// Nav links not focusable by default (nav is in desktop header)
+		this.nav.querySelectorAll('a').forEach(el => el.setAttribute('tabindex', '-1'));
+
+		// Burger open
 		this.burger.addEventListener('click', () => this.openDrawer());
 
-		// close button
+		// Close button
 		this.drawerClose.addEventListener('click', () => this.closeDrawer());
 
-		// close on escape
+		// Close on Escape
 		document.addEventListener('keydown', e => {
 			if (e.key === 'Escape' && this.drawer.classList.contains('is-open')) {
 				this.closeDrawer();
 			}
 		});
 
-		// close on backdrop click
+		// Close on backdrop click
 		this.drawer.addEventListener('click', e => {
 			if (e.target === this.drawer) this.closeDrawer();
-		});
-
-		// mobile accordion dropdowns
-		this.dropdownToggles.forEach(toggle => {
-			toggle.addEventListener('click', e => {
-				e.preventDefault();
-				const item = toggle.closest('.nav__item--has-dropdown');
-				this.toggleDropdown(item);
-			});
 		});
 	}
 };

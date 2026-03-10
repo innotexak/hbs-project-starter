@@ -1,0 +1,26 @@
+{
+  "subheading": "Subheading",
+  "heading": "Neque porro est qui dolorem ipsum quia dolor sit amet",
+  "cta": {
+    "text": "View all testimonials",
+    "url": "#",
+    "target": "_self"
+  },
+  "items": [
+    {
+      "quote": "Nam blandit laoreet eros, non consequat libero pellentesque ac. Donec tempor luctus nisl!",
+      "name": "Tania Walmsley",
+      "role": "Sales Executive"
+    },
+    {
+      "quote": "Pellentesque eget condimentum ipsum. Aenean in ex est. Nam pharetra fringilla diam at sodales. Pellentesque ut sodales sem.",
+      "name": "Jessica Varley",
+      "role": "Budget analyst"
+    },
+    {
+      "quote": "Vestibulum ultricies eros id bibendum ullamcorper.",
+      "name": "Max Newton",
+      "role": "Compliance Officer"
+    }
+  ]
+}
