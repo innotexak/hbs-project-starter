@@ -1,0 +1,14 @@
+{
+  "subheading": "Optional Subheading",
+  "heading": "Consequat tempor tincidunt sit amet",
+  "body": "Cras ut nisi eget mi faucibus finibus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Maecenas scelerisque ante turpis, vitae malesuada nisi.",
+  "cta": {
+    "text": "Find out more",
+    "url": "#",
+    "target": "_self"
+  },
+  "image": {
+    "src": "assets/images/signpost-bg.png",
+    "alternateText": "Japanese street market"
+  }
+}

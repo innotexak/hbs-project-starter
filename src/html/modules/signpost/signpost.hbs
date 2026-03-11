@@ -1,0 +1,41 @@
+<section class="signpost">
+  {{#if image}}
+  <div class="signpost__bg">
+    <img
+      class="signpost__bg-image"
+      src="{{image.src}}"
+      alt="{{image.alternateText}}"
+    >
+    <div class="signpost__overlay" aria-hidden="true"></div>
+  </div>
+  {{/if}}
+
+  <div class="wrap">
+    <div class="signpost__inner">
+
+      {{#if subheading}}
+      <p class="signpost__subheading">{{subheading}}</p>
+      {{/if}}
+
+      {{#if heading}}
+      <h2 class="signpost__heading">{{heading}}</h2>
+      {{/if}}
+
+      {{#if body}}
+      <p class="signpost__body">{{body}}</p>
+      {{/if}}
+
+      {{#if cta}}
+      <a
+        class="signpost__cta"
+        href="{{cta.url}}"
+        {{#ifContains cta.target "_blank"}}target="_blank" rel="noopener noreferrer"{{/ifContains}}
+      >
+        {{cta.text}}
+        <span class="signpost__cta-icon" aria-hidden="true"></span>
+      </a>
+      {{/if}}
+
+    </div>
+  </div>
+</section>

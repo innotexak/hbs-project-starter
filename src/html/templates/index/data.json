@@ -34,7 +34,12 @@
 			{
 				"moduleAlias": "tabs-accordion",
 				">>": "modules/tabs-accordion/data.json"
+			},
+			{
+				"moduleAlias": "signpost",
+				">>": "modules/signpost/data.json"
 			}
+			
 		]
 	}
 }
