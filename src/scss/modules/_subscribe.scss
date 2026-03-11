@@ -1,0 +1,179 @@
+// ----------  subscribe
+// ------------------------------------------------------------------------------
+
+@use "../abstracts" as *;
+@use "sass:color";
+
+.subscribe {
+  width: 100%;
+  background-color: $white;
+  padding: 48px 0;
+
+  @include media-breakpoint-up(md) {
+    padding: 60px 0;
+  }
+
+  @include media-breakpoint-up(lg) {
+    padding: 80px 0;
+  }
+}
+
+// ------------------------------------------------------------------------------
+// Inner
+// ------------------------------------------------------------------------------
+
+.subscribe__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+// ------------------------------------------------------------------------------
+// Subheading
+// ------------------------------------------------------------------------------
+
+.subscribe__subheading {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: $grey;
+  border: 1px solid rgba($white, 0.4);
+  border-radius: 50px;
+  padding: 4px 16px;
+  margin: 0;
+}
+
+// ------------------------------------------------------------------------------
+// Heading
+// ------------------------------------------------------------------------------
+
+.subscribe__heading {
+  font-size: 32px;
+  font-weight: 700;
+  color: $purple; 
+  line-height: 1.2;
+  margin: 0;
+
+  @include media-breakpoint-up(md) {
+    font-size: 42px;
+  }
+
+  @include media-breakpoint-up(lg) {
+    font-size: 56px;
+  }
+}
+
+// ------------------------------------------------------------------------------
+// Body
+// ------------------------------------------------------------------------------
+
+.subscribe__body {
+  font-size: 14px;
+  color: $grey;
+  line-height: 1.7;
+  margin: 0;
+  max-width: 680px;
+
+  @include media-breakpoint-up(md) {
+    font-size: 15px;
+  }
+}
+
+// ------------------------------------------------------------------------------
+// Form
+// ------------------------------------------------------------------------------
+
+.subscribe__form-wrap {
+  width: 100%;
+  margin-top: 12px;
+}
+
+.subscribe__form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+
+  @include media-breakpoint-up(md) {
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+  }
+}
+
+.subscribe__field {
+  flex: 1;
+  width: 100%;
+}
+
+.subscribe__input {
+  width: 100%;
+  padding: 16px 24px;
+  border: 1px solid rgba($white, 0.3);
+  border-radius: 50px;
+  background: transparent;
+  color: $purple;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s ease;
+  box-sizing: border-box;
+
+  &::placeholder {
+    color: $purple;
+    opacity: 0.7;
+  }
+
+  &:focus {
+    border-color: rgba($white, 0.8);
+  }
+}
+
+.subscribe__submit {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 20px;
+  background-color: $purple;
+  border: none;
+  border-radius: 50px;
+  color: $white;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.2s ease;
+  width: 100%;
+  justify-content: center;
+
+  @include media-breakpoint-up(md) {
+    width: auto;
+    flex-shrink: 0;
+    // match input height exactly
+    padding: 16px 24px;
+  }
+
+  @include hover {
+    background-color: color.adjust($purple, $lightness: -8%);
+  }
+}
+
+.subscribe__submit-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: rgba($white, 0.2);
+  background-image: url("../assets/images/arrow-right-purple.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 12px;
+  flex-shrink: 0;
+}

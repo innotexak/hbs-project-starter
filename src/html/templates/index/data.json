@@ -38,8 +38,11 @@
 			{
 				"moduleAlias": "signpost",
 				">>": "modules/signpost/data.json"
+			},
+			{
+				"moduleAlias": "subscribe",
+				">>": "modules/subscribe/data.json"
 			}
-			
 		]
 	}
 }
