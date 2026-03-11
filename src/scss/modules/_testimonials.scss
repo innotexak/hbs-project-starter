@@ -8,17 +8,16 @@
   width:100%;
   display: flex;
   background-color: #8080a8;
-  // padding: 56px 0 0 24px ;
   height: 822px;
+      padding:24px;
   overflow: hidden;
 
-
   @include media-breakpoint-up(md) {
-	width: 100%;
-	height: 858px;
-	justify-content: space-between;
-	align-items: center;
-	opacity: 1;
+    width: 100%;
+    height: 858px;
+    padding: 50px 24px;
+    justify-content: space-between;
+    opacity: 1;
   }
 
   @include media-breakpoint-up(lg) {
@@ -42,6 +41,7 @@
 
   @include media-breakpoint-up(md){
     padding-top:30px;
+    width: 100%;
   }
 }
 
@@ -69,13 +69,15 @@
 	font-weight: 400;
 	font-style: regular;
 	font-size: 32px;
-line-height: 64px;
-letter-spacing: 0;
+  letter-spacing: 0;
 
 
   @include media-breakpoint-up(md) {
-    font-size: 36px;
-    
+    font-size: 40px;
+    line-height: 54px;
+    width: 100%;
+    height: 132px;
+    letter-spacing: 0;
   }
 
   @include media-breakpoint-up(lg) {
@@ -93,7 +95,7 @@ letter-spacing: 0;
 .testimonials__slider {
   overflow: hidden;
   width: 100%;
-  height: 100%;
+  height: 400px;
 }
 
 .testimonials__track {
@@ -104,27 +106,24 @@ letter-spacing: 0;
   gap: 20px;
   transition: transform 0.4s ease;
   will-change: transform;
+
  @include media-breakpoint-up(lg){
   margin:0 40px
  }
+
 }
 
 .testimonials__slide {
-  // Mobile
   flex: 0 0 calc(100% - 40px);
   min-width: 0;
 
   @include media-breakpoint-up(md) {
-    // Tablet
     flex: 0 0 calc(50% - 20px);
   }
 
   @include media-breakpoint-up(lg) {
-    // Desktop
     height: 600px; 
-    flex: 0 0 460px; // Lock width to 460px
-    
-    // Ensure the container handles the 460px items correctly
+    flex: 0 0 460px; 
     max-width: 600px;
     opacity: 1;
     transform: rotate(0deg);
@@ -183,8 +182,8 @@ letter-spacing: 0;
 
   @include media-breakpoint-up(lg) {
     font-size: 24px;
-    	line-height: 100%;
-	letter-spacing: 0%;
+    line-height: 100%;
+	  letter-spacing: 0%;
   }
 }
 
@@ -301,9 +300,6 @@ letter-spacing: 0;
   font-weight: 500;
   text-decoration: none;
   transition: background-color 0.2s ease;
-
-;
-
 
   @include media-breakpoint-down(md) {
     justify-content: center;

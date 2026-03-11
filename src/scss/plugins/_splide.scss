@@ -1,7 +1,7 @@
 // ---------- splide
 // ------------------------------------------------------------------------------
 @use "../abstracts/mixins" as *;
-
+@use "../abstracts/variables" as *;
 .splide {
 	position: relative;
 	&.is-initialized:not(.is-active) .splide__list {
@@ -83,7 +83,7 @@
 	border-radius: 50%;
 	background-color: #888;
 	&.is-active {
-		background-color: #000;
+		background-color: $primary;
 	}
 }
 

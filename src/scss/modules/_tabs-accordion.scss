@@ -76,19 +76,13 @@
     }
   }
 
-  // @include media-breakpoint-up(md){
-
-  // }
-
   @include media-breakpoint-up(lg){
-width: 129px;
-height: 50px;
-opacity: 1;
-border-radius: 100px;
-border-width: 1px;
-padding: 7px;
-
-
+    width: 129px;
+    height: 50px;
+    opacity: 1;
+    border-radius: 100px;
+    border-width: 1px;
+    padding: 7px;
   }
 }
 
@@ -127,7 +121,7 @@ padding: 7px;
     flex: 0 0 260px;
     position: sticky;
     top: 0;
-     gap: 30px;
+    gap: 30px;
   }
 }
 
@@ -167,8 +161,8 @@ padding: 7px;
 
   @include media-breakpoint-up(lg) {
     font-size: 48px;
-      line-height: 64px;
-       width: 400px;
+    line-height: 64px;
+    width: 400px;
   // height: 88px;
   }
 }
@@ -228,12 +222,11 @@ padding: 7px;
   color: $white;
   transition: color 0.2s ease;
   font-family:" Bree Serif", sans-serif;
-font-weight: 400;
-font-style: regular;
-line-height: 100%;
-letter-spacing: 0%;
-vertical-align: middle;
-
+  font-weight: 400;
+  font-style: regular;
+  line-height: 100%;
+  letter-spacing: 0%;
+  vertical-align: middle;
 
   @include media-breakpoint-up(lg) {
     font-size: 24px;

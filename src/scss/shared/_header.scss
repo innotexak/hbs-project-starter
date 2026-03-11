@@ -324,12 +324,6 @@
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-// ------------------------------------------------------------------------------
-// Nav
-// Always stays in header__container in the DOM.
-// Mobile/tablet: hidden by default, becomes fixed overlay when drawer-is-open.
-// Desktop: visible inline between logo and CTA.
-// ------------------------------------------------------------------------------
 
 .header__nav {
   display: none;
@@ -367,7 +361,7 @@
   flex-wrap: wrap;
   list-style: none;
   margin: 0;
-  padding: 0;
+
 }
 
 .nav__item {
@@ -472,10 +466,6 @@
   }
 }
 
-// ------------------------------------------------------------------------------
-// Nav overrides when drawer is open (mobile + tablet)
-// Replaces the old .drawer-nav-slot scoped rules
-// ------------------------------------------------------------------------------
 
 .drawer-is-open .header__nav {
 
@@ -499,7 +489,7 @@
     display: inline-flex;
     border-radius: 0;
     border-bottom: none;
-    color: color.adjust($purple, $lightness: -6%);
+    // color: color.adjust($purple, $lightness: -6%);
 
     @include hover {
       background-color: transparent;
@@ -552,7 +542,7 @@
 // ------------------------------------------------------------------------------
 
 .header__drawer {
-  display: none; // shell itself is invisible — nav is the overlay now
+  display: none; 
 
   @include media-breakpoint-up(lg) {
     display: none !important;
@@ -580,8 +570,23 @@
   }
 }
 
+.nav__item--has-dropdown{
+  .nav__link{
+    &.active{
+      color:$white;
+      
+    }
+    .nav__dropdown-icon{
+      padding-right: 20px;
+    }
+  }
+}
+
 .drawer-is-open .header__drawer-close {
   display: flex;
+ align-items: center;
+ justify-content: center;
+ width: 100%;
 
   @include media-breakpoint-up(lg) {
     display: none;
@@ -595,17 +600,17 @@
 }
 
 // ------------------------------------------------------------------------------
-// Drawer footer — CTA + business tabs shown at bottom of nav overlay
+// Drawer footer 
 // ------------------------------------------------------------------------------
 
 .header__drawer-footer {
-  display: none; // hidden by default
+  display: none; 
   padding: 24px 16px 16px;
   flex-direction: column;
   align-items: center;
   gap: 20px;
   border-top: 1px solid $border-color;
-  margin-top: auto; // pushes footer to bottom of the flex nav overlay
+  margin-top: auto;
 
   @include media-breakpoint-up(md) {
     flex-direction: row;
@@ -613,7 +618,6 @@
   }
 }
 
-// Show footer inside the nav overlay when drawer is open
 .drawer-is-open .header__drawer-footer {
   display: flex;
 
@@ -679,4 +683,16 @@
   background-color: $primary;
   color: $white;
   font-weight: 600;
+}
+
+.header__drawer {
+  display: none;
+
+  @include media-breakpoint-up(lg) {
+    display: none !important;
+  }
+}
+
+.drawer-is-open .header__drawer {
+  display: block;
 }
