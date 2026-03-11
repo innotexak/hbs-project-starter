@@ -9,7 +9,6 @@
 			">>": "shared/footer/data.json"
 		},
 	
-
 		"sections": [
 			{
 				"moduleAlias": "banner",
@@ -28,9 +27,13 @@
 				"moduleAlias": "blocktext",
 				">>": "modules/blocktext/data.json"
 			},
-				{
+			{
 				"moduleAlias": "testimonials",
 				">>": "modules/testimonials/data.json"
+			},
+			{
+				"moduleAlias": "tabs-accordion",
+				">>": "modules/tabs-accordion/data.json"
 			}
 		]
 	}

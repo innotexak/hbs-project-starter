@@ -4,19 +4,18 @@
 @use "../abstracts" as *;
 
 .richtext {
-  padding: 48px 0;
   background-color:$olive ;
   width: 100%;
   height: 548px;
   opacity: 1;
-  padding-top: 56px 24px 56px 24px;
+  padding: 56px 24px;
   gap: 16px;
 
   @include media-breakpoint-up(md) {
     width: 100%;
     height: 478px;
     opacity: 1;
-    padding-top:60px;
+    padding-top:30px;
     gap: 24px;
 
   }

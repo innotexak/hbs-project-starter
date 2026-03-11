@@ -116,7 +116,7 @@
 }
 
 .header__tab--active .header__tab-link {
-  color: $primary;
+  // color: $primary;
   border-bottom-color: $primary;
   font-weight: 600;
 }
@@ -240,7 +240,7 @@
   }
 }
 
-// CTA — mobile + tablet: hidden in main header (lives in drawer), desktop: visible
+// CTA — mobile + tablet: hidden in main header, desktop: visible
 .header__cta {
   display: none;
 
@@ -306,10 +306,6 @@
   font-size: 16px;
   font-weight: 400;
   color: $text-color;
-
-  @include media-breakpoint-between(md, lg) {
-    display: block;
-  }
 }
 
 .header__burger-lines {
@@ -330,24 +326,34 @@
 
 // ------------------------------------------------------------------------------
 // Nav
-// Lives in header__container — a flex child between logo and CTA.
-// On mobile/tablet: hidden by default, JS moves it into #drawer-nav-slot.
-// On desktop: visible, flex:1 centres it between logo and CTA.
+// Always stays in header__container in the DOM.
+// Mobile/tablet: hidden by default, becomes fixed overlay when drawer-is-open.
+// Desktop: visible inline between logo and CTA.
 // ------------------------------------------------------------------------------
 
 .header__nav {
-  display: none; // hidden on mobile/tablet until JS moves it into drawer
+  display: none;
 
   @include media-breakpoint-up(lg) {
     display: block;
-    flex: 1;      // fills space between logo and CTA
-    min-width: 0; // allows shrinking/wrapping
+    flex: 1;
+    min-width: 0;
   }
 }
 
-// When JS moves nav into the drawer slot, show it
-.drawer-nav-slot .header__nav {
-  display: block;
+// When drawer is open, nav becomes the full-screen overlay panel
+.drawer-is-open .header__nav {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background-color: $white;
+  overflow-y: auto;
+  padding: 80px 16px 24px; 
+  & > .nav__link{
+   color:$white;
+  }
 }
 
 // ------------------------------------------------------------------------------
@@ -357,8 +363,8 @@
 .nav__list {
   display: flex;
   align-items: center;
-  justify-content: center; // centres items within the flex-1 space
-  flex-wrap: wrap;          // wraps instead of overflowing
+  justify-content: center;
+  flex-wrap: wrap;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -391,11 +397,10 @@
   &.active {
     color: $white;
     background-color: $primary;
-opacity: 1;
-gap: 2px;
-padding: 8px 14px;
-border-radius: 100px;
-
+    opacity: 1;
+    gap: 2px;
+    padding: 8px 14px;
+    border-radius: 100px;
   }
 }
 
@@ -407,12 +412,12 @@ border-radius: 100px;
   transition: transform 0.2s ease;
 }
 
-// Desktop dropdown container — bridges hover gap with invisible padding
+// Desktop dropdown container
 .nav__dropdown-container {
   position: absolute;
   top: 100%;
   left: 0;
-  padding-top: 8px; // bridges gap between link and dropdown
+  padding-top: 8px;
   background-color: transparent;
 }
 
@@ -427,8 +432,8 @@ border-radius: 100px;
   padding: 8px 0;
   z-index: 100;
 
-  @include media-breakpoint-up(lg){
-  background-color: $olive;
+  @include media-breakpoint-up(lg) {
+    background-color: $olive;
   }
 }
 
@@ -446,7 +451,7 @@ border-radius: 100px;
   }
 
   &.active {
-    color: $primary;
+    color: $white;
     background-color: rgba($primary, 0.1);
   }
 }
@@ -468,11 +473,12 @@ border-radius: 100px;
 }
 
 // ------------------------------------------------------------------------------
-// Nav overrides when inside the drawer (mobile + tablet)
-// All scoped to #drawer-nav-slot so they never affect the desktop nav
+// Nav overrides when drawer is open (mobile + tablet)
+// Replaces the old .drawer-nav-slot scoped rules
 // ------------------------------------------------------------------------------
 
-.drawer-nav-slot {
+.drawer-is-open .header__nav {
+
   .nav__list {
     flex-flow: column nowrap;
     align-items: stretch;
@@ -490,7 +496,7 @@ border-radius: 100px;
     padding: 16px 0;
     text-align: center;
     align-items: center;
-    display:inline-flex;
+    display: inline-flex;
     border-radius: 0;
     border-bottom: none;
     color: color.adjust($purple, $lightness: -6%);
@@ -513,7 +519,6 @@ border-radius: 100px;
     box-shadow: none;
     border-radius: 0;
     padding: 0 0 8px 12px;
-    // background-color: $olive is kept from shared styles
   }
 
   .nav__dropdown-link {
@@ -526,7 +531,7 @@ border-radius: 100px;
     }
   }
 
-  // CSS-only accordion: hover or focus-within opens dropdown
+  // Accordion: hover or focus-within opens dropdown
   .nav__item--has-dropdown {
     &:hover,
     &:focus-within {
@@ -542,39 +547,25 @@ border-radius: 100px;
 }
 
 // ------------------------------------------------------------------------------
-// Drawer shell
+// Drawer shell — now just handles close button + footer (CTA + tabs)
+// The nav panel is handled by .drawer-is-open .header__nav above
 // ------------------------------------------------------------------------------
 
 .header__drawer {
-  position: fixed;
-  inset: 0;
-  z-index: 200;
-  display: flex;
-  flex-direction: column;
-  background-color: $white;
-  transform: translateX(100%);
-  transition: transform 0.3s ease;
-  overflow-y: auto;
-
-  &.is-open {
-    transform: translateX(0);
-  }
+  display: none; // shell itself is invisible — nav is the overlay now
 
   @include media-breakpoint-up(lg) {
     display: none !important;
   }
 }
 
-.header__drawer-header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 16px;
-  border-bottom: 1px solid $border-color;
-}
-
+// Close button — fixed top-right, visible only when drawer is open
 .header__drawer-close {
-  display: flex;
+  display: none;
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 201;
   align-items: center;
   justify-content: center;
   width: 44px;
@@ -589,33 +580,32 @@ border-radius: 100px;
   }
 }
 
+.drawer-is-open .header__drawer-close {
+  display: flex;
+
+  @include media-breakpoint-up(lg) {
+    display: none;
+  }
+}
+
 .header__drawer-close-icon {
   display: inline-block;
   width: 20px;
   height: 20px;
 }
 
-.header__drawer-body {
-  flex: 1;
-  padding: 0 16px 24px;
-
-  @include media-breakpoint-up(md) {
-    height: auto;
-    flex: none;
-  }
-}
-
 // ------------------------------------------------------------------------------
-// Drawer footer
+// Drawer footer — CTA + business tabs shown at bottom of nav overlay
 // ------------------------------------------------------------------------------
 
 .header__drawer-footer {
+  display: none; // hidden by default
   padding: 24px 16px 16px;
-  display: flex;
   flex-direction: column;
   align-items: center;
   gap: 20px;
   border-top: 1px solid $border-color;
+  margin-top: auto; // pushes footer to bottom of the flex nav overlay
 
   @include media-breakpoint-up(md) {
     flex-direction: row;
@@ -623,9 +613,18 @@ border-radius: 100px;
   }
 }
 
-// Drawer CTA — overrides desktop display: none
+// Show footer inside the nav overlay when drawer is open
+.drawer-is-open .header__drawer-footer {
+  display: flex;
+
+  @include media-breakpoint-up(lg) {
+    display: none;
+  }
+}
+
+// Drawer CTA
 .header__drawer-cta {
-  display: inline-flex !important;
+  display: inline-flex;
   width: auto;
   justify-content: center;
   align-items: center;
@@ -644,7 +643,7 @@ border-radius: 100px;
   }
 }
 
-// Business tabs in drawer — mobile: visible, tablet+: hidden
+// Business tabs in drawer footer — mobile: visible, tablet+: hidden
 .header__drawer-tabs {
   display: flex;
   width: 100%;
@@ -674,11 +673,6 @@ border-radius: 100px;
     background-color: rgba($primary, 0.06);
     color: $primary;
   }
-}
-
-.header__drawer-tab-icon {
-  width: 16px;
-  height: 16px;
 }
 
 .header__drawer-tab--active .header__drawer-tab-link {

@@ -1,0 +1,97 @@
+{
+  "tabs": [
+    {
+      "label": "Active tab",
+      "active": true,
+      "subheading": "Subheading",
+      "heading": "Cras nec bibendum lacus",
+      "accordion": [
+        {
+          "title": "Accordion item",
+          "body": "Donec ac nulla erat. Ut dignissim sed orci tristique luctus. Integer pretium elit sit amet felis congue faucibus. Suspendisse vitae dui ac diam rutrum posuere. Nullam consectetur feugiat purus, id vehicula turpis aliquam non. Fusce id urna pulvinar, venenatis eros ac, feugiat elit. Suspendisse at aliquet ipsum.\n\n Donec porttitor, odio in tincidunt efficitur, orci enim rhoncus lacus, sed vehicula metus lacus in ex. Fusce dignissim mauris fringilla, vulputate elit in, cursus metus. Ut interdum orci ut erat pellentesque ornare. Proin rutrum turpis vel cursus posuere. Pellentesque a ornare velit. Cras tristique sapien quis elit accumsan, sit amet feugiat magna facilisis. Vivamus rutrum mi ac accumsan venenatis. Proin varius sagittis lectus nec mollis. Suspendisse ac felis ac mauris molestie mattis vel sit amet urna. Suspendisse vitae ultricides neque, in molestie risus. Nulla et ipsum dictum, aliquam elit id, mattis mi. Curabitur vulputate fringilla tortor, in luctus ex eleifend a. Vestibulum semper efficitur lacus id tincidunt. Donec arcu nibh, porttitor a luctus ac, interdum sit amet dui.\n\nQuisque suscipit mattis nisi, venenatis rutrum quam cursus vitae. Nam ultrices fringilla ex, non congue magna. Ut non posuere ipsum.",
+          "open": true
+        },
+        {
+          "title": "Accordion item",
+          "body": "Donec ac nulla erat. Ut dignissim sed orci tristique luctus.",
+          "open": false
+        },
+        {
+          "title": "Accordion item",
+          "body": "Donec ac nulla erat. Ut dignissim sed orci tristique luctus.",
+          "open": false
+        },
+        {
+          "title": "Accordion item",
+          "body": "Donec ac nulla erat. Ut dignissim sed orci tristique luctus.",
+          "open": false
+        }
+      ]
+    },
+    {
+      "label": "Default tab",
+      "active": false,
+      "subheading": "Subheading",
+      "heading": "Second tab heading",
+      "accordion": [
+        {
+          "title": "Accordion item",
+          "body": "Second tab accordion content.",
+          "open": false
+        }
+      ]
+    },
+    {
+      "label": "Default tab",
+      "active": false,
+      "subheading": "Subheading",
+      "heading": "Third tab heading",
+      "accordion": [
+        {
+          "title": "Accordion item",
+          "body": "Third tab accordion content.",
+          "open": false
+        }
+      ]
+    },
+    {
+      "label": "Default tab",
+      "active": false,
+      "subheading": "Subheading",
+      "heading": "Fourth tab heading",
+      "accordion": [
+        {
+          "title": "Accordion item",
+          "body": "Fourth tab accordion content.",
+          "open": false
+        }
+      ]
+    },
+    {
+      "label": "Default tab",
+      "active": false,
+      "subheading": "Subheading",
+      "heading": "Fifth tab heading",
+      "accordion": [
+        {
+          "title": "Accordion item",
+          "body": "Fifth tab accordion content.",
+          "open": false
+        }
+      ]
+    },
+    {
+      "label": "Default tab",
+      "active": false,
+      "subheading": "Subheading",
+      "heading": "Sixth tab heading",
+      "accordion": [
+        {
+          "title": "Accordion item",
+          "body": "Sixth tab accordion content.",
+          "open": false
+        }
+      ]
+    }
+  ]
+}

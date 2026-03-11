@@ -6,25 +6,25 @@
 
 .testimonials {
   width:100%;
+  display: flex;
   background-color: #8080a8;
-  padding: 56px 0 0 24px ;
+  // padding: 56px 0 0 24px ;
   height: 822px;
   overflow: hidden;
 
 
   @include media-breakpoint-up(md) {
-width: 100%;
-height: 858px;
-justify-content: space-between;
-align-items: center;
-opacity: 1;
-
-
-
+	width: 100%;
+	height: 858px;
+	justify-content: space-between;
+	align-items: center;
+	opacity: 1;
   }
 
   @include media-breakpoint-up(lg) {
-    padding: 72px 0;
+    	justify-content: space-between;
+    align-items:flex-start;
+    padding:80px 230px;
     width: 100%;
     height: 970px;
   }
@@ -66,19 +66,23 @@ opacity: 1;
   margin: 0;
   max-width: 640px;
   font-family: "Bree Serif", sans-serif;
-font-weight: 400;
-font-style: regular;
-font-size: 32px;
-line-height: 44px;
+	font-weight: 400;
+	font-style: regular;
+	font-size: 32px;
+line-height: 64px;
 letter-spacing: 0;
 
 
   @include media-breakpoint-up(md) {
     font-size: 36px;
+    
   }
 
   @include media-breakpoint-up(lg) {
-    font-size: 44px;
+    font-size: 48px;
+    padding-top: 20px;
+    letter-spacing: 0;
+    line-height: 64px;
   }
 }
 
@@ -89,6 +93,7 @@ letter-spacing: 0;
 .testimonials__slider {
   overflow: hidden;
   width: 100%;
+  height: 100%;
 }
 
 .testimonials__track {
@@ -98,23 +103,31 @@ letter-spacing: 0;
   padding: 0;
   gap: 20px;
   transition: transform 0.4s ease;
-  // Default: show 1 card + peek of next
   will-change: transform;
+ @include media-breakpoint-up(lg){
+  margin:0 40px
+ }
 }
 
 .testimonials__slide {
-  // Mobile: 1 card visible with peek
+  // Mobile
   flex: 0 0 calc(100% - 40px);
   min-width: 0;
 
   @include media-breakpoint-up(md) {
-    // Tablet: 2 cards visible with peek
+    // Tablet
     flex: 0 0 calc(50% - 20px);
   }
 
   @include media-breakpoint-up(lg) {
-    // Desktop: 3 cards visible
-    flex: 0 0 calc(33.333% - 14px);
+    // Desktop
+    height: 600px; 
+    flex: 0 0 460px; // Lock width to 460px
+    
+    // Ensure the container handles the 460px items correctly
+    max-width: 600px;
+    opacity: 1;
+    transform: rotate(0deg);
   }
 }
 
@@ -124,7 +137,7 @@ letter-spacing: 0;
 
 .testimonial {
   width: 280px;
-opacity: 1;
+	opacity: 1;
   background-color: $olive;
   border-radius: 8px;
   padding: 28px;
@@ -161,15 +174,17 @@ opacity: 1;
   margin: 0;
   flex: 1;
   font-family: "Bree Serif", sans-serif;
-font-weight: 400;
-font-style: regular;
-font-size: 22px;
-line-height: 100%;
-letter-spacing: 0%;
+	font-weight: 400;
+	font-style: regular;
+	font-size: 22px;
+	line-height: 100%;
+	letter-spacing: 0%;
 
 
   @include media-breakpoint-up(lg) {
-    font-size: 18px;
+    font-size: 24px;
+    	line-height: 100%;
+	letter-spacing: 0%;
   }
 }
 
@@ -189,13 +204,12 @@ letter-spacing: 0%;
 .testimonial__name {
   color: $black;
   font-family: Barlow, sans-serif;
-font-weight: 700;
-font-style: bold;
-font-size: 16px;
-line-height: 100%;
-letter-spacing: 0%;
-vertical-align: middle;
-
+	font-weight: 700;
+	font-style: bold;
+	font-size: 16px;
+	line-height: 100%;
+	letter-spacing: 0%;
+	vertical-align: middle;
 }
 
 .testimonial__role {
