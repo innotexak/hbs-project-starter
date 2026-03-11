@@ -114,19 +114,18 @@
 }
 
 .testimonials__slide {
-  flex: 0 0 calc(100% - 40px);
+  flex: 0 0 70%;
   min-width: 0;
 
+  // Tablet
   @include media-breakpoint-up(md) {
     flex: 0 0 calc(50% - 20px);
   }
 
+  // Desktop
   @include media-breakpoint-up(lg) {
-    height: 600px; 
-    flex: 0 0 460px; 
-    max-width: 600px;
-    opacity: 1;
-    transform: rotate(0deg);
+    flex: 0 0 calc(33.333% - 20px);
+    height: 460px;
   }
 }
 
