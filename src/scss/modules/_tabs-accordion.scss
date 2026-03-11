@@ -1,0 +1,313 @@
+// ----------  tabs-accordion
+// ------------------------------------------------------------------------------
+
+@use "../abstracts" as *;
+@use "sass:color";
+
+.section-divider {
+  background-color: $lavender;
+}
+
+.tabs-accordion {
+  background-color: $lavender;
+  padding: 56px 24px;
+
+  @include media-breakpoint-up(md) {
+   padding: 56px 24px;
+  }
+
+  @include media-breakpoint-up(lg) {
+   padding: 100px 230px;
+  }
+}
+
+// ------------------------------------------------------------------------------
+// Tabs
+// ------------------------------------------------------------------------------
+
+.tabs-accordion__tabs {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 9px;
+  overflow-x: auto;
+  padding-bottom: 24px;
+  scrollbar-width: none;
+  // Prevent tabs row from being clipped by parent
+  width: 100%;
+  -webkit-overflow-scrolling: touch;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  align-items: center;
+
+}
+
+.tabs-accordion__tab {
+  display: inline-flex;
+  font-family:Barlow, sans-serif;
+  align-items: center;
+  justify-content: center;
+  padding: 7px 20px;
+  border: 1px solid rgba($olive, 0.5);
+  border-radius: 50px;
+  background: transparent;
+  line-height: 140%;
+  color: $white;
+  font-size: 16px;
+  font-weight: 700;
+  white-space: nowrap;
+  cursor: pointer;
+  flex-shrink: 0; 
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+
+  @include hover {
+    border-color: $white;
+    background-color: rgba($white, 0.1);
+  }
+
+  &--active {
+    background-color: $purple;
+    border-color: $purple;
+    color: $white;
+
+    @include hover {
+      background-color: color.adjust($purple, $lightness: -8%);
+    }
+  }
+
+  @include media-breakpoint-up(lg){
+    width: 129px;
+    height: 50px;
+    opacity: 1;
+    border-radius: 100px;
+    border-width: 1px;
+    padding: 7px;
+  }
+}
+
+// ------------------------------------------------------------------------------
+// Panels
+// ------------------------------------------------------------------------------
+
+.tabs-accordion__panel {
+  display: none;
+
+  &--active {
+    display: block;
+  }
+}
+
+.tabs-accordion__panel-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+
+  @include media-breakpoint-up(lg) {
+    flex-direction: row;
+    gap: 60px;
+    padding-top:38px;
+    align-items: flex-start;
+  }
+}
+
+// Left col
+.tabs-accordion__panel-left {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  @include media-breakpoint-up(lg) {
+    flex: 0 0 260px;
+    position: sticky;
+    top: 0;
+    gap: 30px;
+  }
+}
+
+.tabs-accordion__subheading {
+  font-family:Barlow, sans-serif;
+  font-style: medium;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  line-height: 100%;
+  text-transform: uppercase;
+  color: $black;
+  background-color: $white;
+  border-radius: 50px;
+  padding: 5px 14px;
+  text-align: center;
+  align-items: center;
+  height: 24px;
+  margin: 0;
+  align-self: flex-start;
+
+}
+
+.tabs-accordion__heading {
+   font-family:"Bree Serif", sans-serif;
+  font-style: regular;
+  font-size: 32px;
+  font-weight: 400;
+  color: $white;
+  line-height: 44px;
+  letter-spacing: 0;
+  margin: 0;
+  width: 327px;
+  height: 88px;
+  opacity: 1;
+
+  @include media-breakpoint-up(lg) {
+    font-size: 48px;
+    line-height: 64px;
+    width: 400px;
+  // height: 88px;
+  }
+}
+
+// Right col
+.tabs-accordion__panel-right {
+  flex: 1;
+  min-width: 0;
+}
+
+// ------------------------------------------------------------------------------
+// Accordion
+// ------------------------------------------------------------------------------
+
+.accordion {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.accordion__item {
+  border-top: 1px solid rgba($white, 0.3);
+
+  &:last-child {
+    border-bottom: 1px solid rgba($white, 0.3);
+  }
+}
+
+.accordion__trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 20px 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  gap: 16px;
+
+
+  @include hover {
+    .accordion__title {
+      color: rgba($white, 0.8);
+    }
+  }
+
+  @include media-breakpoint-up(lg){
+    height: 102px;
+  }
+}
+
+.accordion__title {
+  font-size: 16px;
+  color: $white;
+  transition: color 0.2s ease;
+  font-family:" Bree Serif", sans-serif;
+  font-weight: 400;
+  font-style: regular;
+  line-height: 100%;
+  letter-spacing: 0%;
+  vertical-align: middle;
+
+  @include media-breakpoint-up(lg) {
+    font-size: 24px;
+  }
+}
+
+.accordion__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid rgba($white, 0.5);
+  flex-shrink: 0;
+  position: relative;
+  transition: background-color 0.2s ease;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    background-color: $white;
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+
+  // Horizontal bar
+  &::before {
+    width: 12px;
+    height: 2px;
+  }
+
+  // Vertical bar
+  &::after {
+    width: 2px;
+    height: 12px;
+  }
+}
+
+// Closed state — max-height 0, no hidden attribute needed
+.accordion__body {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.35s ease;
+}
+
+// Open state
+.accordion__item--open {
+  border-top: 1px solid rgba($olive, 0.5);
+  .accordion__trigger{
+    border-bottom: 1px solid rgba($olive, 0.5)
+
+  }
+  .accordion__body {
+    max-height: 100%; 
+  }
+
+  .accordion__icon {
+    background-color: rgba($white, 0.15);
+
+    &::after {
+      transform: rotate(90deg);
+      opacity: 0;
+    }
+  }
+}
+
+.accordion__content {
+  font-family: Barlow, sans-serif;
+  font-weight: 400;
+  font-style: regular;
+  font-size: 16px;
+  letter-spacing: 0%;
+  padding: 32px 16px;
+  color: rgba($white, 0.85);
+  line-height: 1.7;
+  white-space: pre-line;
+  height: auto;
+
+  @include media-breakpoint-up(lg) {
+    font-size: 15px;
+  }
+}

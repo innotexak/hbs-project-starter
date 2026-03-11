@@ -1,0 +1,60 @@
+<section class="testimonials" data-script="testimonials">
+  <div class="wrap">
+
+    <div class="testimonials__header">
+      {{#if subheading}}
+      <p class="testimonials__subheading">{{subheading}}</p>
+      {{/if}}
+
+      {{#if heading}}
+      <h2 class="testimonials__heading">{{heading}}</h2>
+      {{/if}}
+    </div>
+
+    {{#if items}}
+    <div class="splide js-slider">
+      
+      <div class="testimonials__slider splide__track" aria-label="Testimonials" role="region">
+        <ul class="testimonials__track splide__list" role="list">
+          {{#each items}}
+          <li class="testimonials__slide splide__slide">
+            <article class="testimonial">
+              <span class="testimonial__quote-icon" aria-hidden="true">&ldquo;</span>
+              <blockquote class="testimonial__quote">
+                <p class="testimonial__text">{{this.quote}}</p>
+                <footer class="testimonial__footer">
+                  <cite class="testimonial__cite">
+                    <span class="testimonial__name">{{this.name}}</span>
+                    <span class="testimonial__role">{{this.role}}</span>
+                  </cite>
+                </footer>
+              </blockquote>
+            </article>
+          </li>
+          {{/each}}
+        </ul>
+      </div>
+
+      <div class="testimonials__controls">
+        <div class="splide__arrows testimonials__arrows">
+          <button class="splide__arrow splide__arrow--prev testimonials__arrow testimonials__arrow--prev" aria-label="Previous" type="button">
+            <span class="testimonials__arrow-icon" aria-hidden="true"></span>
+          </button>
+          <button class="splide__arrow splide__arrow--next testimonials__arrow testimonials__arrow--next" aria-label="Next" type="button">
+            <span class="testimonials__arrow-icon" aria-hidden="true"></span>
+          </button>
+        </div>
+
+        {{#if cta}}
+        <a class="testimonials__cta" href="{{cta.url}}">
+          {{cta.text}}
+          <span class="testimonials__cta-icon" aria-hidden="true"></span>
+        </a>
+        {{/if}}
+      </div>
+
+    </div> {{/if}}
+
+  </div>
+  	  	
+</section>

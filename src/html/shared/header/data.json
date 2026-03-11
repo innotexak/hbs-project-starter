@@ -29,69 +29,82 @@
       "text": "About us",
       "url": "/about",
       "target": "_self",
+         "active": true,
       "children": [
         {
           "text": "About us overview",
           "url": "/about/overview",
-          "target": "_self"
+          "target": "_self",
+          "active": false
         },
 		{
 		"text": "Empowering the Transition",
 		"url": "/about/empowering-transition",
-		"target": "_self"			
+		"target": "_self"	,
+     "active": false		
 		},
 		{
 			"text": "Our Leadership Team",
 			"url": "/about/our-leadership-team",
-			"target": "_self"
+			"target": "_self",
+        "active": false	
 		},
 	
         {
           "text": "Our Values",
           "url": "/about/our-values",
-          "target": "_self"
+          "target": "_self",
+            "active": false	
         }
       ]
     },
     {
       "text": "Governance",
       "url": "/governance",
-      "target": "_self"
+      "target": "_self",
+        "active": false	
     },
     {
       "text": "Careers",
       "url": "/careers",
-      "target": "_self"
+      "target": "_self",
+        "active": false	
     },
     {
       "text": "Insights & Media",
       "url": "/insights-media",
       "target": "_self",
+        "active": false	,
       "children": [
         {
           "text": "Insights & Media overview",
           "url": "/insights-media/overview",
-          "target": "_self"
+          "target": "_self",
+            "active": false	
         },
         {
           "text": "News",
           "url": "/insights-media/news",
-          "target": "_self"
+          "target": "_self",
+            "active": false	
         },
 		  {
           "text": "Press",
           "url": "/insights-media/press",
-          "target": "_self"
+          "target": "_self",
+            "active": false	
         },
 		  {
           "text": "Media Library",
           "url": "/insights-media/media-library",
-          "target": "_self"
+          "target": "_self",
+            "active": false	
         },
 		  {
 		  "text": "Glossary",
 		  "url": "/insights-media/glossary",
-		  "target": "_self"
+		  "target": "_self",
+        "active": false	
 		}
 		
 		
@@ -100,12 +113,14 @@
     {
       "text": "Contact",
       "url": "/contact",
-      "target": "_self"
+      "target": "_self",
+        "active": false	
     }
   ],
   "cta": {
     "text": "Customer Login",
     "url": "/login",
-    "target": "_self"
+    "target": "_self",
+      "active": false	
   }
 }

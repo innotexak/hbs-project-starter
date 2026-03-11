@@ -5,79 +5,86 @@ const header = {
 	burger: null,
 	drawer: null,
 	drawerClose: null,
-	dropdownToggles: null,
+	nav: null,
 
 	get focusableElements() {
-		return this.drawer.querySelectorAll('a, button');
+		return this.nav.querySelectorAll('a, button');
 	},
 
 	openDrawer() {
-		this.drawer.classList.add('is-open');
-		this.drawer.setAttribute('aria-hidden', 'false');
+		document.body.classList.add('drawer-is-open');
 		this.burger.setAttribute('aria-expanded', 'true');
-		this.focusableElements.forEach(el => el.setAttribute('tabindex', '0'));
-		this.drawerClose.focus();
+		this.drawer.setAttribute('aria-hidden', 'false');
 		document.body.style.overflow = 'hidden';
+		// Focus the close button
+		this.drawerClose.focus();
+		// Make nav links focusable
+		this.focusableElements.forEach(el => el.setAttribute('tabindex', '0'));
 	},
 
 	closeDrawer() {
-		this.drawer.classList.remove('is-open');
-		this.drawer.setAttribute('aria-hidden', 'true');
+		document.body.classList.remove('drawer-is-open');
 		this.burger.setAttribute('aria-expanded', 'false');
-		this.focusableElements.forEach(el => el.setAttribute('tabindex', '-1'));
-		this.burger.focus();
+		this.drawer.setAttribute('aria-hidden', 'true');
 		document.body.style.overflow = '';
-	},
-
-	toggleDropdown(item) {
-		const isOpen = item.classList.contains('is-open');
-
-		// close all open dropdowns first
-		this.dropdownToggles.forEach(toggle => {
-			toggle.closest('.nav__item--has-dropdown').classList.remove('is-open');
-			toggle.setAttribute('aria-expanded', 'false');
-		});
-
-		// open clicked one if it was closed
-		if (!isOpen) {
-			item.classList.add('is-open');
-			item.querySelector('.nav__link').setAttribute('aria-expanded', 'true');
-		}
+		// Return focus to burger
+		this.burger.focus();
+		// Remove focusability from nav links
+		this.focusableElements.forEach(el => el.setAttribute('tabindex', '-1'));
 	},
 
 	init() {
 		this.burger = document.querySelector('.header__burger');
-		this.drawer = document.getElementById('mobile-drawer');
+		this.drawer = document.querySelector('.header__drawer');
 		this.drawerClose = document.querySelector('.header__drawer-close');
-		this.dropdownToggles = document.querySelectorAll('.nav--drawer .nav__item--has-dropdown > .nav__link');
+		this.nav = document.querySelector('.header__nav');
 
-		if (!this.burger || !this.drawer) return;
+		if (!this.burger || !this.nav) return;
 
-		// burger open
+		// Nav links not focusable by default on mobile (nav is visually hidden)
+		if (window.innerWidth < 1024) {
+			this.focusableElements.forEach(el => el.setAttribute('tabindex', '-1'));
+		}
+
+		// Burger open
 		this.burger.addEventListener('click', () => this.openDrawer());
 
-		// close button
-		this.drawerClose.addEventListener('click', () => this.closeDrawer());
+		// Close button
+		if (this.drawerClose) {
+			this.drawerClose.addEventListener('click', () => this.closeDrawer());
+		}
 
-		// close on escape
+		// Close on Escape
 		document.addEventListener('keydown', e => {
-			if (e.key === 'Escape' && this.drawer.classList.contains('is-open')) {
+			if (e.key === 'Escape' && document.body.classList.contains('drawer-is-open')) {
 				this.closeDrawer();
 			}
 		});
 
-		// close on backdrop click
-		this.drawer.addEventListener('click', e => {
-			if (e.target === this.drawer) this.closeDrawer();
-		});
-
-		// mobile accordion dropdowns
-		this.dropdownToggles.forEach(toggle => {
-			toggle.addEventListener('click', e => {
-				e.preventDefault();
-				const item = toggle.closest('.nav__item--has-dropdown');
-				this.toggleDropdown(item);
+		// Close on backdrop click (if you keep a backdrop element)
+		if (this.drawer) {
+			this.drawer.addEventListener('click', e => {
+				if (e.target === this.drawer) this.closeDrawer();
 			});
+		}
+
+		// Re-evaluate tabindex on resize (e.g. user rotates device to desktop width)
+		window.addEventListener('resize', () => {
+			if (window.innerWidth >= 1024) {
+				// Desktop: nav always visible, all links naturally focusable
+				this.focusableElements.forEach(el => el.removeAttribute('tabindex'));
+				// Also close drawer if it was open
+				if (document.body.classList.contains('drawer-is-open')) {
+					document.body.classList.remove('drawer-is-open');
+					document.body.style.overflow = '';
+					this.burger.setAttribute('aria-expanded', 'false');
+				}
+			} else {
+				// Mobile/tablet: only focusable when drawer is open
+				if (!document.body.classList.contains('drawer-is-open')) {
+					this.focusableElements.forEach(el => el.setAttribute('tabindex', '-1'));
+				}
+			}
 		});
 	}
 };

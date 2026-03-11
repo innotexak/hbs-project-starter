@@ -9,12 +9,12 @@
 			">>": "shared/footer/data.json"
 		},
 	
-
 		"sections": [
 			{
 				"moduleAlias": "banner",
 				">>": "modules/banner/data.json"
 			},
+
 			{
 				"moduleAlias": "richtext",
 				">>": "modules/richtext/data.json"
@@ -22,6 +22,18 @@
 			{
 				"moduleAlias": "cards",
 				">>": "modules/cards/data.json"
+			},
+			{
+				"moduleAlias": "blocktext",
+				">>": "modules/blocktext/data.json"
+			},
+			{
+				"moduleAlias": "testimonials",
+				">>": "modules/testimonials/data.json"
+			},
+			{
+				"moduleAlias": "tabs-accordion",
+				">>": "modules/tabs-accordion/data.json"
 			}
 		]
 	}

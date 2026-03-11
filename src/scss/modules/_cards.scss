@@ -6,15 +6,27 @@
 
 .cards {
   background-color: $white;
-   padding: 56px 24px;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    padding: 56px 24px;
+    margin:0 auto;
 
 
   @include media-breakpoint-up(md) {
-    padding: 60px 0;
+   width: 100%;
+    height: 682px;
+    opacity: 1;
+    padding: 80px 24px;
   }
 
   @include media-breakpoint-up(lg) {
-    padding: 72px 0;
+    width: 100%;
+    min-height: 740px;
+    opacity: 1;
+    padding: 112px 230px;
+    margin:0 auto;
+
   }
 }
 
@@ -24,14 +36,26 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: 48px;
-  width: 375px;
   height: auto;
   opacity: 1;
+  width: 100%;
 
   @include media-breakpoint-up(md) {
     grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
     align-items: start;
+    width: 720px;
+    height: 522px;
+    opacity: 1;
+    margin:0 auto;
+    gap: 32px;
+
+  }
+
+  @include media-breakpoint-up(lg){
+    width:100%;
+    margin:0 auto;
+    height: 516px;
+    background-color: red($color: #000);
   }
 }
 
@@ -42,30 +66,65 @@
 .card {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  width: 327px;
+  height: 430px;
+  opacity: 1;
+  gap: 20;
+  justify-content: space-between;
+
+  @include media-breakpoint-up(md){
+    width: 218px;
+    height: 522px;
+    opacity: 1;
+    gap: 20;
+     justify-content: flex-start;
+  }
+
+   @include media-breakpoint-up(md){
+    gap:10;
+  }
+
+  @include media-breakpoint-up(lg){
+    width: 100%;
+    height: 516px;
+  }
 }
 
 // Image
 .card__media {
-  width: 100%;
-  aspect-ratio: 16 / 10;
+  width: 327px;
+  height: 210px;
+  opacity: 1;
   border-radius: 12px;
   overflow: hidden;
+  margin:0 auto;
 
-  @include media-breakpoint-up(lg) {
-    aspect-ratio: 4 / 3;
+  @include media-breakpoint-up(md){
+    width: 100%;
+    height: 170px;
+    opacity: 1;
   }
+
+    @include media-breakpoint-up(lg){
+    width: 100%;
+    height: 400px;
+    opacity: 1;
+  }
+
 }
 
 .card__image {
-  width: 327px;
-height: 210px;
-opacity: 1;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
   object-fit: cover;
   object-position: center;
   display: block;
   transition: transform 0.3s ease;
 
+  @include media-breakpoint-up(lg){
+    height: 260px;
+  }
   @include hover {
     transform: scale(1.04);
   }
@@ -76,70 +135,96 @@ opacity: 1;
   display: flex;
   flex-direction: column;
   gap: 12px;
-  flex: 1;
+  justify-content: flex-start;
+  height: 170px;
+  width: 100%;
+
+  @include media-breakpoint-up(md){
+    width: 100%;
+    height: 266px;
+    opacity: 1;
+    gap: 4px;
+    padding: 0 2px;
+
+  }
+  
 }
 
 .card__heading {
-  font-size: 20px;
-  font-weight: 700;
   color: $purple;
-  line-height: 1.3;
-  width: 327px;
-height: auto;
-opacity: 1;
+  width: 100%;
+  height: auto;
   margin: 0;
+  font-family: "Bree Serif", sans-serif;
+  font-weight: 400;
+  font-style: regular;
+  font-size: 24px;
+  line-height: 100%;
+  letter-spacing: 0%;
+
+  @include media-breakpoint-up(md) {
+    font-size: 22px;
+    line-height: 100%;
+    padding:20px 0 0;
+  }
 
   @include media-breakpoint-up(lg) {
-    font-size: 22px;
+    font-size: 24px;
+    line-height: 24px;
   }
 }
 
 .card__body {
-  color: $grey;
+  color: $grey-dark;
   margin: 0;
   font-family: Barlow, sans-serif;
   font-weight: 400;
-  font-style: regular;
-  width: 327px;
-  height: auto;
-  opacity: 1;
+  font-style: normal;
   font-size: 16px;
   line-height: 24px;
   letter-spacing: 0%;
+  width: 100%;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 6;
+    padding:5px;
+  overflow: hidden;
 
-
-
+  @include media-breakpoint-up(md){
+    -webkit-line-clamp: 7;
+        padding:0 15px 0 0;
+  }
 
   @include media-breakpoint-up(lg) {
-    font-size: 15px;
+    -webkit-line-clamp: 4;
   }
 }
-
 // CTA
 .card__cta {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  margin-top: auto;
   background-color: $purple;
   border-radius: 50px;
   color: $white;
   text-decoration: none;
   align-self: flex-start;
   transition: background-color 0.2s ease, border-color 0.2s ease;
-font-family: Barlow, sans-serif;
-font-weight: 500;
-font-style: medium;
-font-size: 16px;
-line-height: 100%;
-letter-spacing: 0%;
-width: 75px;
-height: 19px;
-opacity: 1;
+  font-family: Barlow, sans-serif;
+  font-weight: 500;
+  font-style: medium;
+  font-size: 16px;
+  justify-content: space-between;
+  padding:5px 5px 5px 10px;
+  width: 142px;
+  height: 42px;
 
+@include media-breakpoint-up(md){
+  margin-top:40px;
+}
 
   @include hover {
-    background-color: rgba($purple, 0.06);
+    background-color: rgba($purple, 0.9);
     border-color: $purple;
   }
 }
@@ -150,7 +235,6 @@ opacity: 1;
   justify-content: center;
   width: 32px;
   height: 32px;
-  // border-radius: 50%;
   background-color: $olive;
   background-image: url("../assets/images/arrow-right.png");
   background-repeat: no-repeat;
@@ -158,7 +242,7 @@ opacity: 1;
   background-size: 12px;
   flex-shrink: 0;
   font-size:16px;
-opacity: 1;
-border-radius: 20px;
+  opacity: 1;
+  border-radius: 20px;
 
 }
