@@ -5,16 +5,23 @@
 @use "sass:color";
 
 .subscribe {
-  width: 100%;
   background-color: $white;
-  padding: 48px 0;
+  padding: 56px 24px;
+  width:100%;
+  min-height: 564px;
+  
 
   @include media-breakpoint-up(md) {
-    padding: 60px 0;
+    width: 100%;
+    height: 440px;
+    opacity: 1;
+    padding: 80px 24px;
+
   }
 
   @include media-breakpoint-up(lg) {
     padding: 80px 0;
+    height: 548px;
   }
 }
 
@@ -30,6 +37,10 @@
   gap: 20px;
   max-width: 860px;
   margin: 0 auto;
+
+  @include media-breakpoint-up(md){
+    width: 100%;
+  }
 }
 
 // ------------------------------------------------------------------------------
@@ -37,16 +48,25 @@
 // ------------------------------------------------------------------------------
 
 .subscribe__subheading {
-  display: inline-block;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   color: $grey;
-  border: 1px solid rgba($white, 0.4);
-  border-radius: 50px;
-  padding: 4px 16px;
+  border: 1px solid rgba($olive, 0.4);
   margin: 0;
+  font-family: Barlow, sans-serif;
+  font-weight: 500;
+  font-style: medium;
+  font-size: 14px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-transform: uppercase;
+  width: 181px;
+  height: 24px;
+  opacity: 1;
+  text-align: center;
+  border-width: 1px;
+  border-radius: 50px;
 }
 
 // ------------------------------------------------------------------------------
@@ -54,14 +74,23 @@
 // ------------------------------------------------------------------------------
 
 .subscribe__heading {
+  font-family: "Bree Serif", sans-serif;
+  font-style:regular;
+  letter-spacing: 0;
   font-size: 32px;
-  font-weight: 700;
+  font-weight: 400;
   color: $purple; 
-  line-height: 1.2;
+  line-height: 44px;
   margin: 0;
+  width: 327px;
+  height: 88px;
+  opacity: 1;
+
 
   @include media-breakpoint-up(md) {
-    font-size: 42px;
+    width: 100%;
+      font-size: 40px;
+      line-height: 54px;
   }
 
   @include media-breakpoint-up(lg) {
@@ -74,11 +103,17 @@
 // ------------------------------------------------------------------------------
 
 .subscribe__body {
-  font-size: 14px;
   color: $grey;
-  line-height: 1.7;
   margin: 0;
   max-width: 680px;
+  font-family: Barlow, sans-serif;
+  font-weight: 400;
+  font-style: regular;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0%;
+  text-align: center;
+
 
   @include media-breakpoint-up(md) {
     font-size: 15px;
@@ -91,7 +126,12 @@
 
 .subscribe__form-wrap {
   width: 100%;
-  margin-top: 12px;
+  margin-top: 40px;
+  @include media-breakpoint-up(md){
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
 
 .subscribe__form {
@@ -113,50 +153,77 @@
 }
 
 .subscribe__input {
-  width: 100%;
-  padding: 16px 24px;
-  border: 1px solid rgba($white, 0.3);
-  border-radius: 50px;
-  background: transparent;
   color: $purple;
-  font-size: 14px;
+  font-size: 14px;  
   outline: none;
   transition: border-color 0.2s ease;
   box-sizing: border-box;
+  width: 327px;
+  height: 42px;
+  opacity: 1;
+  padding: 14px 20px 14px 30px;
+  gap: 10px;
+  border-radius: 100px;
+  border: 1px solid rgba($border-color, 0.4);
 
+
+   
   &::placeholder {
     color: $purple;
     opacity: 0.7;
+  
   }
 
   &:focus {
     border-color: rgba($white, 0.8);
   }
+
+  @include media-breakpoint-up(md){
+    width: 100%;
+  }
+
+    @include media-breakpoint-up(lg){
+    width: 100%;
+    height: 76px;
+    opacity: 1;
+    padding: 14px 20px 14px 30px;
+    gap: 10px;
+    border-radius: 100px;
+    border-width: 1px;
+     font-size: 20px;
+
+  }
 }
 
 .subscribe__submit {
+  font-family: Barlow, sans-serif;
+  line-height: 100%;
+  letter-spacing: 0%;
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  padding: 14px 20px;
   background-color: $purple;
   border: none;
-  border-radius: 50px;
   color: $white;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600;
   cursor: pointer;
   white-space: nowrap;
   transition: background-color 0.2s ease;
   width: 100%;
-  justify-content: center;
+  height: 42px;
+  justify-content: space-between;
+  opacity: 1;
+  padding: 5px 5px 5px 20px;
+  border-radius: 100px;
+
 
   @include media-breakpoint-up(md) {
     width: auto;
     flex-shrink: 0;
-    // match input height exactly
-    padding: 16px 24px;
   }
+
+  // @include media-breakpoint-up(lg){}
 
   @include hover {
     background-color: color.adjust($purple, $lightness: -8%);
