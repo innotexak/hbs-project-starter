@@ -187,7 +187,7 @@
 
 .accordion__item {
   border-top: 1px solid rgba($white, 0.3);
-
+  
   &:last-child {
     border-bottom: 1px solid rgba($white, 0.3);
   }
@@ -270,8 +270,8 @@
 // Closed state — max-height 0, no hidden attribute needed
 .accordion__body {
   overflow: hidden;
-  max-height: 0;
-  transition: max-height 0.35s ease;
+  height: 0; 
+ transition: height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 // Open state

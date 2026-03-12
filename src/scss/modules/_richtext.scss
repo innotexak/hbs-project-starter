@@ -42,7 +42,8 @@
   }
 
   @include media-breakpoint-up(lg){
-    width: 1200px;
+    max-width: 1200px;
+    width: 100%;
     height: 256px;
     opacity: 1; 
   }
@@ -111,7 +112,7 @@ margin-top:12px;
     letter-spacing: 0;
     text-align: center;
     padding:0;
-    width: 1200px;
+    max-width: 1200px;
     height: 256px;
     line-height: 64px;
     opacity: 1;
