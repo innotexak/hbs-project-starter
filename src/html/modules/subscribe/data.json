@@ -1,0 +1,11 @@
+{
+  "subheading": "Optional Subheading",
+  "heading": "Vestibulum et tortor et libero",
+  "body": "Sed consequat eleifend dui, eu iaculis nibh commodo non. In ut mi vitae neque consectetur iaculis. Phasellus at consectetur tortor. Nullam bibendum, massa ut cursus varius, elit mi dignissim dui, vel faucibus turpis ligula et ligula. Nulla pharetra risus in arcu faucibus malesuada. In quis auctor ex.",
+  "form": {
+    "action": "#",
+    "inputLabel": "Email address",
+    "inputPlaceholder": "Please enter your email address...",
+    "submitText": "Subscribe"
+  }
+}
