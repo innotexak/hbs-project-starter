@@ -7,6 +7,75 @@
 	{{#each data.sections}}
 	{{> (lookup this 'moduleAlias') this}}
 	{{/each}}
+
+	<section class="accordion-test js-accordion" data-script="accordion">
+		<div class="wrap">
+			<div class="accordion-test__holder">
+				<h2>Title</h2>
+			</div>
+			<div class="accordion-test__content">
+				<ul class="accordion-test__list" role="list">
+					<li class="accordion-test__item js-accordion-item" style="margin-bottom: 30px;">
+						<button class="accordion-test__button js-accordion-button">Test Accordion Item</button>
+						<div class="accordion-test__body js-accordion-body" style="height: 0; overflow: hidden; transition: height 0.3s ease-in-out;">
+							<div class="accordion-test__content js-accordion-content">
+								Lorem ipsum dolor, sit amet consectetur adipisicing elit. Placeat, aspernatur! Ratione, corporis nobis facilis saepe libero hic adipisci animi laborum cum? Est, enim rerum! Eius id sint atque culpa tenetur.
+								Ducimus, culpa sapiente. Necessitatibus non consectetur nemo placeat tenetur, earum assumenda hic eum autem cupiditate voluptatibus consequatur harum iusto animi ex itaque, quod sed molestias ab praesentium ad porro libero.
+								Harum unde eius eligendi, molestias asperiores accusantium accusamus fugiat eos corporis expedita. Velit maiores consectetur, ab minus eos cumque molestiae ullam animi illo, in vero repellendus, quae dolores. Odit, deleniti!
+								Distinctio repellendus adipisci voluptate facere debitis praesentium labore ipsum molestiae voluptatibus dicta libero asperiores enim totam obcaecati, quam laborum. Repellendus sed similique vero harum consequuntur quisquam a necessitatibus veniam inventore.
+								Eos, reiciendis iure. Quibusdam maxime magni, optio vitae amet voluptate itaque voluptatibus cum rerum totam esse? Accusantium, praesentium! Ab non ipsa sit temporibus esse voluptas, ullam a culpa odit ut?
+								Expedita dolor, delectus velit nobis natus laudantium voluptatum alias cumque, nulla aliquam, error neque eaque a animi! Quod magnam temporibus deleniti labore neque odio laboriosam provident vitae magni exercitationem! Unde!
+								Exercitationem corporis doloribus perferendis culpa ea fuga id consequuntur molestiae, veritatis laborum minima nobis dignissimos facere? Aspernatur autem, eos, modi expedita similique saepe distinctio placeat quas sit quisquam nemo est?
+								Vel nihil deleniti incidunt tempora quisquam officia veniam molestias natus illum, neque quod illo ex quae! Provident placeat quia facilis, aspernatur nihil beatae maiores ab cupiditate, eum voluptas quos non.
+								Laborum quia illum rem, ad quas quisquam commodi dicta amet voluptatibus ratione aspernatur nam quibusdam facere, accusamus eveniet perspiciatis dolore quos deleniti officia reiciendis delectus ipsum? Nihil rerum fugit architecto.
+								Est vel doloribus distinctio fuga consequatur libero culpa quia sed labore, voluptates veniam, dolor ea. Omnis molestias quos quibusdam, placeat accusantium modi, porro quisquam voluptas repellat sint cupiditate laborum eveniet.
+							</div>
+						</div>
+					</li>
+
+					<li class="accordion-test__item js-accordion-item" style="margin-bottom: 30px;">
+						<button class="accordion-test__button js-accordion-button">
+							Test Accordion Item
+							<span class="font-ico font-ico-chevron-outline-down"></span>
+							<span class="font-ico-chevron-next"></span>
+						</button>
+						<div class="accordion-test__body js-accordion-body" style="height: 0; overflow: hidden; transition: height 0.3s ease-in-out;">
+							<div class="accordion-test__content js-accordion-content">
+								Lorem ipsum dolor, sit amet consectetur adipisicing elit. Placeat, aspernatur! Ratione, corporis nobis facilis saepe libero hic adipisci animi laborum cum? Est, enim rerum! Eius id sint atque culpa tenetur.
+								Ducimus, culpa sapiente. Necessitatibus non consectetur nemo placeat tenetur, earum assumenda hic eum autem cupiditate voluptatibus consequatur harum iusto animi ex itaque, quod sed molestias ab praesentium ad porro libero.
+								Harum unde eius eligendi, molestias asperiores accusantium accusamus fugiat eos corporis expedita. Velit maiores consectetur, ab minus eos cumque molestiae ullam animi illo, in vero repellendus, quae dolores. Odit, deleniti!
+								Distinctio repellendus adipisci voluptate facere debitis praesentium labore ipsum molestiae voluptatibus dicta libero asperiores enim totam obcaecati, quam laborum. Repellendus sed similique vero harum consequuntur quisquam a necessitatibus veniam inventore.
+								Eos, reiciendis iure. Quibusdam maxime magni, optio vitae amet voluptate itaque voluptatibus cum rerum totam esse? Accusantium, praesentium! Ab non ipsa sit temporibus esse voluptas, ullam a culpa odit ut?
+								Expedita dolor, delectus velit nobis natus laudantium voluptatum alias cumque, nulla aliquam, error neque eaque a animi! Quod magnam temporibus deleniti labore neque odio laboriosam provident vitae magni exercitationem! Unde!
+								Exercitationem corporis doloribus perferendis culpa ea fuga id consequuntur molestiae, veritatis laborum minima nobis dignissimos facere? Aspernatur autem, eos, modi expedita similique saepe distinctio placeat quas sit quisquam nemo est?
+								Vel nihil deleniti incidunt tempora quisquam officia veniam molestias natus illum, neque quod illo ex quae! Provident placeat quia facilis, aspernatur nihil beatae maiores ab cupiditate, eum voluptas quos non.
+								Laborum quia illum rem, ad quas quisquam commodi dicta amet voluptatibus ratione aspernatur nam quibusdam facere, accusamus eveniet perspiciatis dolore quos deleniti officia reiciendis delectus ipsum? Nihil rerum fugit architecto.
+								Est vel doloribus distinctio fuga consequatur libero culpa quia sed labore, voluptates veniam, dolor ea. Omnis molestias quos quibusdam, placeat accusantium modi, porro quisquam voluptas repellat sint cupiditate laborum eveniet.
+							</div>
+						</div>
+					</li>
+
+					<li class="accordion-test__item js-accordion-item" style="margin-bottom: 30px;">
+						<button class="accordion-test__button js-accordion-button">Test Accordion Item</button>
+						<div class="accordion-test__body js-accordion-body" style="height: 0; overflow: hidden; transition: height 0.3s ease-in-out;">
+							<div class="accordion-test__content js-accordion-content">
+								Lorem ipsum dolor, sit amet consectetur adipisicing elit. Placeat, aspernatur! Ratione, corporis nobis facilis saepe libero hic adipisci animi laborum cum? Est, enim rerum! Eius id sint atque culpa tenetur.
+								Ducimus, culpa sapiente. Necessitatibus non consectetur nemo placeat tenetur, earum assumenda hic eum autem cupiditate voluptatibus consequatur harum iusto animi ex itaque, quod sed molestias ab praesentium ad porro libero.
+								Harum unde eius eligendi, molestias asperiores accusantium accusamus fugiat eos corporis expedita. Velit maiores consectetur, ab minus eos cumque molestiae ullam animi illo, in vero repellendus, quae dolores. Odit, deleniti!
+								Distinctio repellendus adipisci voluptate facere debitis praesentium labore ipsum molestiae voluptatibus dicta libero asperiores enim totam obcaecati, quam laborum. Repellendus sed similique vero harum consequuntur quisquam a necessitatibus veniam inventore.
+								Eos, reiciendis iure. Quibusdam maxime magni, optio vitae amet voluptate itaque voluptatibus cum rerum totam esse? Accusantium, praesentium! Ab non ipsa sit temporibus esse voluptas, ullam a culpa odit ut?
+								Expedita dolor, delectus velit nobis natus laudantium voluptatum alias cumque, nulla aliquam, error neque eaque a animi! Quod magnam temporibus deleniti labore neque odio laboriosam provident vitae magni exercitationem! Unde!
+								Exercitationem corporis doloribus perferendis culpa ea fuga id consequuntur molestiae, veritatis laborum minima nobis dignissimos facere? Aspernatur autem, eos, modi expedita similique saepe distinctio placeat quas sit quisquam nemo est?
+								Vel nihil deleniti incidunt tempora quisquam officia veniam molestias natus illum, neque quod illo ex quae! Provident placeat quia facilis, aspernatur nihil beatae maiores ab cupiditate, eum voluptas quos non.
+								Laborum quia illum rem, ad quas quisquam commodi dicta amet voluptatibus ratione aspernatur nam quibusdam facere, accusamus eveniet perspiciatis dolore quos deleniti officia reiciendis delectus ipsum? Nihil rerum fugit architecto.
+								Est vel doloribus distinctio fuga consequatur libero culpa quia sed labore, voluptates veniam, dolor ea. Omnis molestias quos quibusdam, placeat accusantium modi, porro quisquam voluptas repellat sint cupiditate laborum eveniet.
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</section>
 	
 </main>
 

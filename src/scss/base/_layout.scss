@@ -18,20 +18,9 @@ body {
 
 .wrap {
 	margin: 0 auto;
-	max-width: 1280px;
-	padding: 0;
+	max-width: 1240px;
+	padding: 0 20px;
 	width: 100%;
-
-	@include media-breakpoint-up(md){
-		padding: 0;
-		height: auto;
-
-	}
-
-	@include media-breakpoint-up(lg){
-		padding: 0;
-		height: auto;
-	}
 }
 
 .image {
