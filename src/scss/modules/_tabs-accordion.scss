@@ -13,11 +13,12 @@
   padding: 56px 24px;
 
   @include media-breakpoint-up(md) {
-   padding: 56px 24px;
+  //  padding: 56px 24px;
   }
 
   @include media-breakpoint-up(lg) {
-   padding: 100px 230px;
+  //  padding: 100px 230px;
+  max-height: 1166px;
   }
 }
 
@@ -29,10 +30,13 @@
   display: flex;
   flex-wrap: nowrap;
   gap: 9px;
-  overflow-x: auto;
-  padding-bottom: 24px;
+
+  /* Horizontally scrollable tab row */
+  overflow: auto hidden;
+  touch-action: pan-x;
+  -ms-overflow-style: none;
   scrollbar-width: none;
-  // Prevent tabs row from being clipped by parent
+  padding: 0 0 24px;
   width: 100%;
   -webkit-overflow-scrolling: touch;
 
@@ -40,9 +44,7 @@
     display: none;
   }
   align-items: center;
-
 }
-
 .tabs-accordion__tab {
   display: inline-flex;
   font-family:Barlow, sans-serif;
@@ -155,14 +157,16 @@
   line-height: 44px;
   letter-spacing: 0;
   margin: 0;
-  width: 327px;
-  height: 88px;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  word-break: break-word;
   opacity: 1;
 
   @include media-breakpoint-up(lg) {
     font-size: 48px;
     line-height: 64px;
-    width: 400px;
+    width: auto;
   // height: 88px;
   }
 }
@@ -187,7 +191,8 @@
 
 .accordion__item {
   border-top: 1px solid rgba($white, 0.3);
-  
+  max
+
   &:last-child {
     border-bottom: 1px solid rgba($white, 0.3);
   }
@@ -271,7 +276,7 @@
 .accordion__body {
   overflow: hidden;
   height: 0; 
- transition: height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: height 0.3s ease-in-out;
 }
 
 // Open state

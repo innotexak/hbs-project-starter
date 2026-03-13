@@ -16,7 +16,7 @@
     width: 100%;
     height: 858px;
     // padding: 50px 24px;
-    justify-content: space-between;
+    justify-content: flex-start;
     opacity: 1;
   }
 
@@ -93,12 +93,15 @@
 // ------------------------------------------------------------------------------
 
 .testimonials__slider {
-  overflow: hidden;
   width: 100%;
-  height: 400px;
+  height: auto;
+  overflow: visible;
+  align-items: center;
 }
 
 .testimonials__track {
+  height: auto;
+  width: 100%;
   display: flex;
   list-style: none;
   margin: 0;
@@ -107,48 +110,52 @@
   transition: transform 0.4s ease;
   will-change: transform;
 
- @include media-breakpoint-up(lg){
-  margin:0 40px
- }
+
 
 }
 
-.testimonials__slide {
-  flex: 0 0 100%;
-  min-width: 0;
+// .testimonials__slide{
+//   flex: 0 0 100%;
+//   min-width: 0;
 
-  // Tablet
-  @include media-breakpoint-up(md) {
-    flex: 0 0 calc(50% - 20px);
-  }
+//   // Tablet
+//   @include media-breakpoint-up(md) {
+//     flex: 0 0 calc(50% - 20px);
+//   }
 
-  // Desktop
-  @include media-breakpoint-up(lg) {
-    flex: 0 0 calc(33.333% - 20px);
-    height: 460px;
-  }
-}
+//   // Desktop
+//   @include media-breakpoint-up(lg) {
+//     flex: 0 0 calc(33.333% - 20px);
+//     height: 460px;
+//   }
+// }
 
 // ------------------------------------------------------------------------------
 // Testimonial card
 // ------------------------------------------------------------------------------
 
 .testimonial {
-  width: 280px;
+  max-width: 280px;
+  width: 100%;
 	opacity: 1;
-  background-color: $olive;
   border-radius: 8px;
   padding: 28px;
   display: flex;
   flex-direction: column;
   gap: 0;
-  height: 100%;
-  min-height: 320px;
-
+  height: 350px;
+  background-color: $olive;
+  
   @include media-breakpoint-up(md){
     width:100%;
-    height: 364px;
+    max-width: 400px;
+    height: 380px;
   
+  }
+  @include media-breakpoint-up(lg){
+    max-width: 460px;
+    width:100%;
+     height: 420px;
   }
 }
 
