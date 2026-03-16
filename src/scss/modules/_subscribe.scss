@@ -1,12 +1,12 @@
-// ----------  subscribe
-// ------------------------------------------------------------------------------
+
 
 @use "../abstracts" as *;
 @use "sass:color";
 
 .subscribe {
   background-color: $white;
-  padding: 56px 24px;
+  display: flex;
+  align-items: center;
   width:100%;
   min-height: 564px;
   
@@ -15,19 +15,14 @@
     width: 100%;
     height: 440px;
     opacity: 1;
-    padding: 80px 24px;
 
   }
 
   @include media-breakpoint-up(lg) {
-    padding: 80px 0;
     height: 548px;
   }
 }
 
-// ------------------------------------------------------------------------------
-// Inner
-// ------------------------------------------------------------------------------
 
 .subscribe__inner {
   display: flex;
@@ -35,7 +30,8 @@
   align-items: center;
   text-align: center;
   gap: 20px;
-  max-width: 860px;
+  width: 100%;
+  padding:0 130px;
   margin: 0 auto;
 
   @include media-breakpoint-up(md){
@@ -43,9 +39,6 @@
   }
 }
 
-// ------------------------------------------------------------------------------
-// Subheading
-// ------------------------------------------------------------------------------
 
 .subscribe__subheading {
   display: inline-flex;
@@ -69,10 +62,6 @@
   border-radius: 50px;
 }
 
-// ------------------------------------------------------------------------------
-// Heading
-// ------------------------------------------------------------------------------
-
 .subscribe__heading {
   font-family: "Bree Serif", sans-serif;
   font-style:regular;
@@ -82,30 +71,23 @@
   color: $purple; 
   line-height: 44px;
   margin: 0;
-  width: 327px;
-  height: 88px;
   opacity: 1;
-
 
   @include media-breakpoint-up(md) {
     width: 100%;
-      font-size: 40px;
-      line-height: 54px;
+    font-size: 40px;
+    line-height: 54px;
   }
 
   @include media-breakpoint-up(lg) {
-    font-size: 56px;
+    font-size: 48px;
   }
 }
 
-// ------------------------------------------------------------------------------
-// Body
-// ------------------------------------------------------------------------------
 
 .subscribe__body {
   color: $grey;
   margin: 0;
-  max-width: 680px;
   font-family: Barlow, sans-serif;
   font-weight: 400;
   font-style: regular;
@@ -114,19 +96,20 @@
   letter-spacing: 0%;
   text-align: center;
 
-
   @include media-breakpoint-up(md) {
     font-size: 15px;
   }
-}
 
-// ------------------------------------------------------------------------------
-// Form
-// ------------------------------------------------------------------------------
+    @include media-breakpoint-up(lg) {
+    font-size: 16px;
+  }
+  
+}
 
 .subscribe__form-wrap {
   width: 100%;
   margin-top: 40px;
+
   @include media-breakpoint-up(md){
     display: flex;
     justify-content: space-between;
@@ -145,11 +128,42 @@
     align-items: center;
     gap: 16px;
   }
+
+    @include media-breakpoint-up(md) {
+    flex-direction: row;
+    align-items: center;
+    gap: 40px;
+  }
 }
 
 .subscribe__field {
+  position: relative;
   flex: 1;
   width: 100%;
+}
+
+
+.subscribe__label {
+  position: absolute;
+  left: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: Barlow, sans-serif;
+  font-weight: 400;
+  font-style: regular;
+  font-size: 14px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: rgba($purple, 0.7);
+  pointer-events: none;
+  background-color: $white;
+  border-radius: 30px;
+  padding: 0 4px;
+  transition: top 0.2s ease, font-size 0.2s ease, color 0.2s ease;
+
+  @include media-breakpoint-up(lg) {
+    font-size: 20px;
+  }
 }
 
 .subscribe__input {
@@ -158,7 +172,7 @@
   outline: none;
   transition: border-color 0.2s ease;
   box-sizing: border-box;
-  width: 327px;
+  width: 100%;
   height: 42px;
   opacity: 1;
   padding: 14px 20px 14px 30px;
@@ -166,23 +180,26 @@
   border-radius: 100px;
   border: 1px solid rgba($border-color, 0.4);
 
-
-   
   &::placeholder {
-    color: $purple;
-    opacity: 0.7;
-  
+    color: transparent;
   }
 
   &:focus {
-    border-color: rgba($white, 0.8);
+    outline: 2px solid rgba($purple, 0.8);
+  }
+
+  &:focus ~ .subscribe__label,
+  &:not(:placeholder-shown) ~ .subscribe__label {
+    top: 0;
+    font-size: 11px;
+    color: $purple;
   }
 
   @include media-breakpoint-up(md){
     width: 100%;
   }
 
-    @include media-breakpoint-up(lg){
+  @include media-breakpoint-up(lg){
     width: 100%;
     height: 76px;
     opacity: 1;
@@ -190,10 +207,16 @@
     gap: 10px;
     border-radius: 100px;
     border-width: 1px;
-     font-size: 20px;
+    font-size: 20px;
 
+    &:focus ~ .subscribe__label,
+    &:not(:placeholder-shown) ~ .subscribe__label {
+      top: 0;
+      font-size: 16px;
+    }
   }
 }
+
 
 .subscribe__submit {
   font-family: Barlow, sans-serif;
@@ -217,13 +240,14 @@
   padding: 5px 5px 5px 20px;
   border-radius: 100px;
 
-
   @include media-breakpoint-up(md) {
     width: auto;
     flex-shrink: 0;
   }
 
-  // @include media-breakpoint-up(lg){}
+  @include media-breakpoint-up(lg){
+    width: 138px;
+  }
 
   @include hover {
     background-color: color.adjust($purple, $lightness: -8%);

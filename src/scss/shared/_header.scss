@@ -363,7 +363,6 @@
   flex-wrap: wrap;
   list-style: none;
   margin: 0;
-
 }
 
 .nav__item {
@@ -499,7 +498,7 @@
     display: inline-flex;
     border-radius: 0;
     border-bottom: none;
-   justify-content: center;
+   justify-content: space-between;
 
     @include hover {
       background-color: transparent;
@@ -573,6 +572,7 @@
   background: none;
   border: none;
   cursor: pointer;
+  background-color: $white;
   color: $text-color;
 
   @include hover {
@@ -622,7 +622,6 @@
   gap: 20px;
   border-top: 1px solid $border-color;
   margin-top: auto;
-
   @include media-breakpoint-up(md) {
     flex-direction: row;
     justify-content: space-between;
@@ -631,7 +630,14 @@
 
 .drawer-is-open .header__drawer-footer {
   display: flex;
-
+  position: fixed;
+   bottom: 0;              
+  left: 0;                
+  right: 0;               
+  z-index: 202;
+  overflow-y: auto;
+  // padding: 80px 16px 100px;
+    background-color: $white;
   @include media-breakpoint-up(lg) {
     display: none;
   }
@@ -696,13 +702,6 @@
   font-weight: 600;
 }
 
-.header__drawer {
-  display: none;
-
-  @include media-breakpoint-up(lg) {
-    display: none !important;
-  }
-}
 
 .drawer-is-open .header__drawer {
   display: block;

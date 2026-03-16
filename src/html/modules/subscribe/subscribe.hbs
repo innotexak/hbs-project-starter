@@ -1,4 +1,4 @@
-<section class="subscribe">
+<section class="subscribe" data-script="subscribe" >
   <div class="wrap">
     <div class="subscribe__inner">
 
@@ -17,26 +17,27 @@
       {{#if form}}
       <div class="subscribe__form-wrap">
         <form
-          class="subscribe__form"
+          class="subscribe__form js-subscribe__form"
           action="{{form.action}}"
           method="post"
           novalidate
         >
-          <div class="subscribe__field">
-            <label class="subscribe__label sr-only" for="subscribe-email">
-              {{form.inputLabel}}
-            </label>
-            <input
-              class="subscribe__input"
-              type="email"
-              name="email"
-              id="subscribe-email"
-              autocomplete="email"
-              placeholder="{{form.inputPlaceholder}}"
-              aria-label="{{form.inputLabel}}"
-              required
-            >
-          </div>
+        <div class="subscribe__field">
+          <input
+            class="subscribe__input"
+            type="email"
+            name="email"
+            id="js-subscribe-email"
+            autocomplete="email"
+            placeholder=" "
+            aria-label="{{form.inputLabel}}"
+            required
+          
+          >
+          <label class="subscribe__label" for="js-subscribe-email">
+            {{form.inputPlaceholder}}
+          </label>
+        </div>
           <button class="subscribe__submit" type="submit">
             {{form.submitText}}
             <span class="subscribe__submit-icon" aria-hidden="true"></span>
