@@ -1,12 +1,12 @@
-// ----------  subscribe
-// ------------------------------------------------------------------------------
+
 
 @use "../abstracts" as *;
 @use "sass:color";
 
 .subscribe {
   background-color: $white;
-  padding: 56px 24px;
+  display: flex;
+  align-items: center;
   width:100%;
   min-height: 564px;
   
@@ -15,19 +15,14 @@
     width: 100%;
     height: 440px;
     opacity: 1;
-    padding: 80px 24px;
 
   }
 
   @include media-breakpoint-up(lg) {
-    padding: 80px 0;
     height: 548px;
   }
 }
 
-// ------------------------------------------------------------------------------
-// Inner
-// ------------------------------------------------------------------------------
 
 .subscribe__inner {
   display: flex;
@@ -35,7 +30,8 @@
   align-items: center;
   text-align: center;
   gap: 20px;
-  max-width: 860px;
+  width: 100%;
+  padding:0 130px;
   margin: 0 auto;
 
   @include media-breakpoint-up(md){
@@ -43,9 +39,6 @@
   }
 }
 
-// ------------------------------------------------------------------------------
-// Subheading
-// ------------------------------------------------------------------------------
 
 .subscribe__subheading {
   display: inline-flex;
@@ -69,10 +62,6 @@
   border-radius: 50px;
 }
 
-// ------------------------------------------------------------------------------
-// Heading
-// ------------------------------------------------------------------------------
-
 .subscribe__heading {
   font-family: "Bree Serif", sans-serif;
   font-style:regular;
@@ -82,8 +71,6 @@
   color: $purple; 
   line-height: 44px;
   margin: 0;
-  width: 327px;
-  height: 88px;
   opacity: 1;
 
   @include media-breakpoint-up(md) {
@@ -93,18 +80,14 @@
   }
 
   @include media-breakpoint-up(lg) {
-    font-size: 56px;
+    font-size: 48px;
   }
 }
 
-// ------------------------------------------------------------------------------
-// Body
-// ------------------------------------------------------------------------------
 
 .subscribe__body {
   color: $grey;
   margin: 0;
-  max-width: 680px;
   font-family: Barlow, sans-serif;
   font-weight: 400;
   font-style: regular;
@@ -116,11 +99,12 @@
   @include media-breakpoint-up(md) {
     font-size: 15px;
   }
-}
 
-// ------------------------------------------------------------------------------
-// Form
-// ------------------------------------------------------------------------------
+    @include media-breakpoint-up(lg) {
+    font-size: 16px;
+  }
+  
+}
 
 .subscribe__form-wrap {
   width: 100%;
@@ -144,6 +128,12 @@
     align-items: center;
     gap: 16px;
   }
+
+    @include media-breakpoint-up(md) {
+    flex-direction: row;
+    align-items: center;
+    gap: 40px;
+  }
 }
 
 .subscribe__field {
@@ -152,9 +142,6 @@
   width: 100%;
 }
 
-// ------------------------------------------------------------------------------
-// Label
-// ------------------------------------------------------------------------------
 
 .subscribe__label {
   position: absolute;
@@ -170,6 +157,7 @@
   color: rgba($purple, 0.7);
   pointer-events: none;
   background-color: $white;
+  border-radius: 30px;
   padding: 0 4px;
   transition: top 0.2s ease, font-size 0.2s ease, color 0.2s ease;
 
@@ -177,10 +165,6 @@
     font-size: 20px;
   }
 }
-
-// ------------------------------------------------------------------------------
-// Input
-// ------------------------------------------------------------------------------
 
 .subscribe__input {
   color: $purple;
@@ -228,14 +212,11 @@
     &:focus ~ .subscribe__label,
     &:not(:placeholder-shown) ~ .subscribe__label {
       top: 0;
-      font-size: 13px;
+      font-size: 16px;
     }
   }
 }
 
-// ------------------------------------------------------------------------------
-// Submit
-// ------------------------------------------------------------------------------
 
 .subscribe__submit {
   font-family: Barlow, sans-serif;
@@ -264,7 +245,9 @@
     flex-shrink: 0;
   }
 
-  // @include media-breakpoint-up(lg){}
+  @include media-breakpoint-up(lg){
+    width: 138px;
+  }
 
   @include hover {
     background-color: color.adjust($purple, $lightness: -8%);
