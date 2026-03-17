@@ -32,7 +32,6 @@ const subscribeForm = {
 			this.emailInput.classList.add('is-invalid');
 		}
 
-		console.log('Debounced input value:', value);
 	},
 
 	handleSubmit(e) {
@@ -40,11 +39,9 @@ const subscribeForm = {
 		const value = this.emailInput.value.trim();
 
 		if (!value || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
-			console.log('Invalid email, not submitting');
+
 			return;
 		}
-
-		console.log('Form submitted:', value);
 
 		// TODO: Calling of api to process submission
 	}
