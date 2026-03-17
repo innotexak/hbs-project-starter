@@ -4,7 +4,6 @@
 @use "../abstracts" as *;
 
 .richtext {
-  background-color:$olive ;
   width: 100%;
   height: 548px;
   opacity: 1;
@@ -13,6 +12,7 @@
   align-items: center;
   flex-direction: column;
   gap: 16px;
+  background-color: $olive;
 
   @include media-breakpoint-up(md) {
     width: 100%;
