@@ -161,7 +161,7 @@
   pointer-events: none;
   background-color: $white;
   border-radius: 30px;
-  padding: 0 4px;
+  padding: 5px 4px;
   transition: top 0.2s ease, font-size 0.2s ease, color 0.2s ease;
 
   @include media-breakpoint-up(lg) {

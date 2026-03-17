@@ -12,7 +12,7 @@
   align-items: center;
   flex-direction: column;
   gap: 16px;
-  background-color: $olive;
+  background-color: $olive-light;
 
   @include media-breakpoint-up(md) {
     width: 100%;

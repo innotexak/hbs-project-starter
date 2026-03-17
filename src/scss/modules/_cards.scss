@@ -60,7 +60,7 @@
     max-width: 1200px;
     grid-template-columns: repeat(3, 1fr);
     height: 516px;
-    background-color: red($color: #000);
+    // background-color: red($color: #000);
   }
 }
 
@@ -157,7 +157,7 @@
 }
 
 .card__heading {
-  color: $purple;
+  color: $purple-light;
   width: 100%;
   height: auto;
   margin: 0;

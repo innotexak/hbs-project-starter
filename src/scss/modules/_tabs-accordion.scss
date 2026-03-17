@@ -55,8 +55,8 @@
   background: transparent;
   line-height: 140%;
   color: $white;
-  font-size: 16px;
   font-weight: 700;
+  font-size: bold;
   white-space: nowrap;
   cursor: pointer;
   flex-shrink: 0; 
@@ -68,9 +68,9 @@
   }
 
   &--active {
-    background-color: $purple;
-    border-color: $purple;
-    color: $white;
+    background-color: $purple-light;
+    border-color: $purple-light;
+    color: rgba($white, 0.7);
 
     @include hover {
       background-color: color.adjust($purple, $lightness: -8%);
