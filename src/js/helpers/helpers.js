@@ -113,12 +113,33 @@ const helpers = (() => {
 		};
 	};
 
+	// Animate on scroll
+	const initAnimateOnScroll = () => {
+		const elements = document.querySelectorAll('[data-animate]');
+		console.log('animate elements found:', elements.length); // should be > 0
+
+		const observer = new IntersectionObserver(entries => {
+			entries.forEach(entry => {
+				console.log('intersecting:', entry.isIntersecting, entry.target);
+				if (entry.isIntersecting) {
+					entry.target.classList.add('in-view');
+					observer.unobserve(entry.target);
+				}
+			});
+		}, { threshold: 0.15 });
+
+		elements.forEach((el, index) => {
+			el.style.setProperty('--animate-index', index);
+			observer.observe(el);
+		});
+	};
 	return {
 		disableScroll,
 		enableScroll,
 		setEqualHeights,
 		throttle,
-		debounce
+		debounce,
+		initAnimateOnScroll
 	};
 })();
 
