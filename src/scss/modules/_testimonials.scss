@@ -14,15 +14,16 @@
 
   @include media-breakpoint-up(md) {
     width: 100%;
+    // max-width: 720px;
     height: 858px;
-    // padding: 50px 24px;
-    justify-content: flex-start;
+    padding: 50px 0;
+    justify-content: space-between;
     opacity: 1;
   }
 
   @include media-breakpoint-up(lg) {
     justify-content: space-between;
-    align-items:flex-start;
+    align-items:center;
     padding:80px 0;
     width: 100%;
     height: 970px;
@@ -82,7 +83,7 @@
 
   @include media-breakpoint-up(lg) {
     font-size: 48px;
-    padding-top: 20px;
+    margin-top: 20px;
     letter-spacing: 0;
     line-height: 64px;
   }
@@ -114,21 +115,21 @@
 
 }
 
-// .testimonials__slide{
-//   flex: 0 0 100%;
-//   min-width: 0;
+.testimonials__slide{
+  flex: 0 0 100%;
+  min-width: 0;
 
-//   // Tablet
-//   @include media-breakpoint-up(md) {
-//     flex: 0 0 calc(50% - 20px);
-//   }
+  // Tablet
+  @include media-breakpoint-up(md) {
+    flex: 0 0 calc(70% - 90px);
+  }
 
-//   // Desktop
-//   @include media-breakpoint-up(lg) {
-//     flex: 0 0 calc(33.333% - 20px);
-//     height: 460px;
-//   }
-// }
+  // Desktop
+  @include media-breakpoint-up(lg) {
+    flex: 0 0 calc(33.333% - 20px);
+    height: 460px;
+  }
+}
 
 // ------------------------------------------------------------------------------
 // Testimonial card
@@ -236,11 +237,12 @@
   margin-top: 32px;
   gap: 16px;
 
+
   @include media-breakpoint-up(md){
       flex-direction: row;
       justify-content: space-between;
-      padding: 10px 20px;
-      gap:0;
+      padding: 15px 10px;
+      gap:10;
   }
     @include media-breakpoint-up(lg){
       flex-direction: row;
@@ -257,8 +259,8 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 48px;
-  height: 48px;
+  width: 58px;
+  height: 58px;
   border-radius: 50%;
   border: 1px solid rgba($white, 0.4);
   background: transparent;
@@ -296,6 +298,8 @@
 // CTA
 .testimonials__cta {
   height: 42px;
+  font-style: medium;
+  font-family: Barlow, sans-serif;
   padding: 5px 5px 5px 20px;
   border-radius: 100px;
   display: inline-flex;
@@ -310,6 +314,8 @@
 
   @include media-breakpoint-down(md) {
     justify-content: center;
+      font-size: 16px;
+      font-style: medium;
   }
 
   @include hover {

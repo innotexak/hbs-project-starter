@@ -8,7 +8,7 @@
         <div class="footer__brand">
           {{#if footer.brand.logo}}
           <a href="/" class="footer__brand-home" aria-label="Go to homepage">
-            <img class="footer__brand-logo" src="{{footer.brand.logo.src}}" alt="{{footer.brand.logo.alternateText}}">
+            <img class="footer__brand-logo" data-animate data-animate-direction="right" src="{{footer.brand.logo.src}}" alt="{{footer.brand.logo.alternateText}}">
           </a>
           {{/if}}
       <div class="footer__brand-wrapper">
@@ -31,7 +31,7 @@
           <p class="footer__social-label">{{footer.social.label}}</p>
           <ul class="footer__social-list" role="list">
             {{#each footer.social.items}}
-            <li class="footer__social-item">
+            <li class="footer__social-item" data-animate>
               <a class="footer__social-link" href="{{this.url}}" target="_blank" rel="noopener noreferrer" aria-label="{{this.label}}">
                 <img class="footer__social-icon" src="{{this.icon}}" alt="">
               </a>
@@ -130,7 +130,7 @@
           {{/if}}
 
         </div>
-</div>
+        </div>
       </div>
     </div>
   </div>
@@ -155,7 +155,7 @@
         </div>
 
         {{#if footer.bottom.backToTop}}
-        <button class="footer__back-to-top" type="button" aria-label="Back to top of page">
+        <button class="footer__back-to-top" type="button" aria-label="Back to top of page" data-animate data-animate-direction="left">
           <span class="footer__back-to-top-text">{{footer.bottom.backToTop}}</span>
           <span class="footer__back-to-top-icon" aria-hidden="true"></span>
         </button>
