@@ -12,7 +12,7 @@
   width: 100%;
   justify-content: center;
   overflow: visible;
-  min-height: 320px;
+
 
 
   @include media-breakpoint-up(md) {
@@ -81,17 +81,20 @@
   justify-content: flex-start;
   align-items: center;
   height: 528px;
-  min-width: 375px;
+  max-width: 375px;
+  width: 100%;
   text-align: center;
   padding-top:96px;
 
   @include media-breakpoint-up(md) {
-	padding-top:78px;
-  height:50%;
+     width: 100%;
+    padding-top:78px;
+    height:50%;
   }	
 
    @include media-breakpoint-up(lg) {
-    width: 600px;
+    width: 100%;
+    max-width: 600px;
     padding-top:96px;
     text-align: left;
     display:block;
@@ -194,10 +197,10 @@
 // ------------------------------------------------------------------------------
 
 .banner__media {
-  width: 120%;
+  width: 100%;
   position:relative;
   height: 240px;
-
+  overflow: visible;
   @include media-breakpoint-up(md){
     width: 100%;
     height: 50%;
@@ -212,21 +215,27 @@
 }
 
 .banner__media-circle {
-	width: 100%;
-	height: 240px;
-	opacity: 1;
-  border-radius: 50%;
-
+    position: absolute;
+    width: 120%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 240px;
+    max-width: 375px;
+    opacity: 1;
+    border-radius: 50%;
+    overflow: visible;
 
    @include media-breakpoint-up(md) {
-      width: 100%;
+      width: 130%;
+      max-width: 768px;
+      top: 50%;
+      left: 50%;
+      margin: 0 auto;
+      transform: translate(-50%, -50%);
       opacity: 1;
       height: 100%;
       gap: 10px;
-      border-top-left-radius: 300px;
-      border-top-right-radius: 300px;
-
-
   }
 
   @include media-breakpoint-up(lg) {
