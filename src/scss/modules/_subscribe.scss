@@ -172,6 +172,7 @@
 .subscribe__input {
   color: $purple;
   font-size: 14px;  
+  background-color: $white;
   outline: none;
   transition: border-color 0.2s ease;
   box-sizing: border-box;
@@ -191,13 +192,18 @@
     outline: 2px solid rgba($purple, 0.8);
   }
 
+  &:not(:placeholder-shown):invalid {
+    background-color: $error;
+    border-color: $orange; 
+  }
   &:focus ~ .subscribe__label,
   &:not(:placeholder-shown) ~ .subscribe__label {
     top: 0;
     font-size: 11px;
     color: $purple;
     background-color:$white;
-    border:1px solid $border-color;
+    border:1px solid rgba($border-color, 0.4);
+    padding: 3px 10px;
     
   }
 
@@ -218,7 +224,7 @@
     &:focus ~ .subscribe__label,
     &:not(:placeholder-shown) ~ .subscribe__label {
       top: 0;
-      font-size: 16px;
+      font-size: 12px;
 
     }
   }

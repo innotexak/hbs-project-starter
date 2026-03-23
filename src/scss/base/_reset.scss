@@ -250,7 +250,7 @@ input[type='text'],
 input[type='email'],
 input[type='tel'],
 input[type='search'],
-input[type='password']
+input[type='password'],
 textarea {
 	appearance: none;
 	box-shadow: none;
@@ -268,10 +268,16 @@ textarea {
 	resize: vertical;
 }
 
-input:invalid,
-textarea:invalid {
-	background-color: #f0dddd;
+// input:invalid,
+// textarea:invalid {
+// 	background-color: #f0dddd;
+// }
+
+input:not(:placeholder-shown):invalid,
+textarea:not(:placeholder-shown):invalid {
+    background-color: #f0dddd;
 }
+
 
 input,
 textarea,
@@ -290,3 +296,9 @@ table {
 td {
 	vertical-align: top;
 }
+
+
+// input:not(:placeholder-shown):invalid,
+// textarea:not(:placeholder-shown):invalid {
+//     background-color: #f0dddd;
+// }

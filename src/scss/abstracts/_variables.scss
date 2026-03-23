@@ -14,6 +14,7 @@ $olive-light: #EAE8B3;
 $purple-light: #5D508B;
 $lavender: #7B7C9D;
 $grey-dark: #444;
+$error: #f0dddd;
 $site-colors: (
 	'black': $black,
 	'white': $white,
@@ -23,7 +24,8 @@ $site-colors: (
 	'olive': $olive,
 	'purple-light': $purple-light,
 	'olive-light': $olive-light,
-	'lavender':$lavender
+	'lavender':$lavender,
+	'error':$error,
 ) !default;
 $primary: $purple;
 $secondary: $olive;
