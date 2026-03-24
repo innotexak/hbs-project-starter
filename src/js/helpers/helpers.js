@@ -111,6 +111,7 @@ const helpers = (() => {
 			clearTimeout(timeout);
 			timeout = setTimeout(later, interval || 100);
 		};
+
 	};
 
 	return {

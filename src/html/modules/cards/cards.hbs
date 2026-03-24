@@ -4,7 +4,7 @@
     <ul class="cards__list" role="list">
       {{#each items}}
       <li class="cards__item">
-        <article class="card">
+        <article class="card" data-animate>
 
           {{#if this.image}}
           <div class="card__media">
@@ -13,7 +13,7 @@
               src="{{this.image.src}}"
               alt="{{this.image.alternateText}}"
             >
-          </div>
+          </div>  
           {{/if}}
 
           <div class="card__content">
@@ -27,7 +27,7 @@
 
           
           </div>
-  {{#if this.cta}}
+            {{#if this.cta}}
             <a
               class="card__cta"
               href="{{this.cta.url}}"

@@ -2,7 +2,7 @@
   <div class="wrap">
     <div class="banner__inner">
 
-      <div class="banner__content">
+      <div class="banner__content" data-animate data-animate-direction="left">
         {{#if heading}}
         <h1 class="banner__heading">{{heading}}</h1>
         {{/if}}
@@ -24,7 +24,7 @@
       </div>
 
       {{#if image}}
-      <div class="banner__media">
+      <div class="banner__media" data-animate>
         <div class="banner__media-circle">
           <img
             class="banner__image"

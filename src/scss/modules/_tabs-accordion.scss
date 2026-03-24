@@ -9,10 +9,15 @@
 }
 
 .tabs-accordion {
-     padding: 56px 0;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  padding: 56px 0;
   background-color: $lavender;
   @include media-breakpoint-up(md) {
-   padding: 56px 0;
+  justify-content: center;
+  align-items: center;
   }
 
   @include media-breakpoint-up(lg) {
@@ -55,8 +60,8 @@
   background: transparent;
   line-height: 140%;
   color: $white;
-  font-size: 16px;
   font-weight: 700;
+  font-size: bold;
   white-space: nowrap;
   cursor: pointer;
   flex-shrink: 0; 
@@ -68,23 +73,32 @@
   }
 
   &--active {
-    background-color: $purple;
-    border-color: $purple;
-    color: $white;
+    background-color: $purple-light;
+    border-color: $purple-light;
+    color: rgba($white, 0.7);
 
     @include hover {
       background-color: color.adjust($purple, $lightness: -8%);
     }
   }
 
-  @include media-breakpoint-up(lg){
-    width: 129px;
-    height: 50px;
-    opacity: 1;
-    border-radius: 100px;
-    border-width: 1px;
-    padding: 7px;
+    @include media-breakpoint-up(md){
+      width: 129px;
+      height: 50px;
+      opacity: 1;
+      border-radius: 100px;
+      border-width: 1px;
+      padding: 7px;
   }
+
+    @include media-breakpoint-up(lg){
+      width: 129px;
+      height: 50px;
+      opacity: 1;
+      border-radius: 100px;
+      border-width: 1px;
+      padding: 7px;
+    }
 }
 
 // ------------------------------------------------------------------------------
@@ -159,7 +173,7 @@
   width: auto;
   max-width: 100%;
   height: auto;
-  // word-break: break-word;
+  overflow-wrap: break-word;
   opacity: 1;
 
   @include media-breakpoint-up(lg) {
@@ -190,8 +204,7 @@
 
 .accordion__item {
   border-top: 1px solid rgba($white, 0.3);
-  max
-
+  
   &:last-child {
     border-bottom: 1px solid rgba($white, 0.3);
   }

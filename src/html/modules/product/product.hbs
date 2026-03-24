@@ -1,0 +1,51 @@
+
+
+<section class="product">
+  <div class="wrap">
+	<div class="product__listing">
+		{{#each items}}
+			<article class="product-card" data-animate>
+
+				{{#if title}}
+				<div class="product-card__title-wrapper">
+					<h2 class="product-card__title">
+					{{truncate title 25}}
+					</h2>
+				</div>
+				{{/if}}
+
+				{{#if price}}
+				<div class="product-card__price-wrapper">
+					<p class="product-card__price">
+					{{formatCurrency price}}
+					</p>
+				</div>
+				{{/if}}
+
+				{{#greaterThan price 1000000}}
+				<div class="product-card__badge-wrapper">
+					<span class="product-card__badge product-card__badge--premium">
+					Premium Product
+					</span>
+				</div>
+				{{else}}
+				<div class="product-card__badge-wrapper">
+					<span class="product-card__badge product-card__badge--affordable">
+					Budget Friendly
+					</span>
+				</div>
+				{{/greaterThan}}
+
+				{{#if description}}
+				<div class="product-card__description-wrapper">
+					<p class="product-card__description">
+					{{truncate description 90}}
+					</p>
+				</div>
+				{{/if}}
+
+			</article>
+    	{{/each}}
+	</div>
+  </div>
+</section>
