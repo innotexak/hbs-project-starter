@@ -59,7 +59,7 @@ export default {
 		return (parseInt(index) || 0) + 1;
 	},
 
-	//Add more helper functions
+	//Added more helper functions
 	greaterThan: function(a, b, options) {
 		return a > b ? options.fn(this) : options.inverse(this);
 	},
@@ -87,5 +87,17 @@ export default {
 		return text.length > length
 			? text.substring(0, length) + '...'
 			: text;
-	}
+	},
+
+	formatParagraphs: function(text) {
+		if (!text || typeof text !== 'string') return text;
+		const escapedText = text
+			.replace(/&/g, '&amp;')
+			.replace(/</g, '&lt;')
+			.replace(/>/g, '&gt;')
+			.replace(/"/g, '&quot;')
+			.replace(/'/g, '&#x27;');
+		const withBreaks = escapedText.replace(/\n/g, '<br>');
+		return withBreaks;
+	},
 };
