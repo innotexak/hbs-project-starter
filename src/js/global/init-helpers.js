@@ -25,7 +25,7 @@ const initHelpers = (() => {
 		html.classList.add('no-touch');
 	}
 
-	// Animate on scroll
+	// // Animate on scroll
 	window.addEventListener('DOMContentLoaded', () => {
 		const elements = document.querySelectorAll('[data-animate]');
 

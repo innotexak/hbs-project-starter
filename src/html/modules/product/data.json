@@ -1,0 +1,34 @@
+{
+  "items": [
+    {
+      "title": "Apple MacBook Pro M3 Max 16-inch",
+      "price": 2500000,
+      "description": "Designed for developers, video editors, and professionals who need high performance, long battery life, and seamless multitasking experience."
+    },
+    {
+      "title": "Samsung Galaxy S24 Ultra 512GB",
+      "price": 850000,
+      "description": "Flagship Android smartphone with a 200MP camera, built-in S Pen, and a stunning 6.8-inch Dynamic AMOLED display for ultimate productivity."
+    },
+    {
+      "title": "Sony WH-1000XM5 Noise Cancelling Headphones",
+      "price": 320000,
+      "description": "Industry-leading noise cancellation with 30-hour battery life, multipoint connection, and crystal-clear hands-free calling for any environment."
+    },
+    {
+      "title": "LG 27-inch 4K UHD IPS Monitor",
+      "price": 1200000,
+      "description": "Professional-grade display with DCI-P3 98% colour accuracy, USB-C connectivity, and HDR600 support — perfect for creatives and power users."
+    },
+    {
+      "title": "Logitech MX Master 3S Wireless Mouse",
+      "price": 95000,
+      "description": "Precision 8000 DPI sensor, whisper-quiet clicks, and MagSpeed electromagnetic scrolling. Works seamlessly across Mac, Windows, and Linux."
+    },
+    {
+      "title": "iPad Pro 12.9-inch M2 Wi-Fi 256GB",
+      "price": 1750000,
+      "description": "Ultra-thin design with the Apple M2 chip, Liquid Retina XDR display, and Apple Pencil support — the most capable iPad ever made."
+    }
+  ]
+}

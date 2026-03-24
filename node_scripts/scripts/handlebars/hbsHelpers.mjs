@@ -57,5 +57,35 @@ export default {
 
 	increment: function(index) {
 		return (parseInt(index) || 0) + 1;
+	},
+
+	//Add more helper functions
+	greaterThan: function(a, b, options) {
+		return a > b ? options.fn(this) : options.inverse(this);
+	},
+
+	formatCurrency: function(value, currencyCode, locale) {
+		if (typeof value !== 'number') return value;
+
+		if (typeof currencyCode === 'object') {
+			currencyCode = 'NGN';
+			locale = 'en-NG';
+		}
+
+		if (typeof locale === 'object') {
+			locale = 'en-NG';
+		}
+
+		return new Intl.NumberFormat(locale || 'en-NG', {
+			style: 'currency',
+			currency: currencyCode || 'NGN'
+		}).format(value);
+	},
+
+	truncate: function(text, length) {
+		if (!text) return '';
+		return text.length > length
+			? text.substring(0, length) + '...'
+			: text;
 	}
 };

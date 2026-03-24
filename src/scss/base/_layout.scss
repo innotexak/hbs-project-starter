@@ -33,7 +33,7 @@ body {
   height: 6px;
 
   @include media-breakpoint-up(md){
-	  width: 100%;
-  height: 12px;
+	width: 100%;
+  	height: 12px;
   }
 }
