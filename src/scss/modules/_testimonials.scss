@@ -22,9 +22,11 @@
   }
 
   @include media-breakpoint-up(lg) {
-    justify-content: space-between;
+    display: flex;
+    justify-content: flex-start;
     align-items:center;
-    padding:80px 0;
+    // padding-top:80px;
+    padding: 0;
     width: 100%;
     height: 970px;
   }
@@ -42,6 +44,11 @@
 
   @include media-breakpoint-up(md){
     padding-top:30px;
+    width: 100%;
+  }
+
+    @include media-breakpoint-up(lg){
+    padding-top:10px;
     width: 100%;
   }
 }
@@ -107,7 +114,7 @@
   list-style: none;
   margin: 0;
   padding: 0;
-  gap: 20px;
+  // gap: 20px;
   transition: transform 0.4s ease;
   will-change: transform;
 
@@ -126,7 +133,8 @@
 
   // Desktop
   @include media-breakpoint-up(lg) {
-    flex: 0 0 calc(33.333% - 20px);
+    flex: 0 0 calc(40% - 5px);
+    // height: 100%;
     height: 460px;
   }
 }
@@ -245,7 +253,9 @@
       gap:10;
   }
     @include media-breakpoint-up(lg){
+       padding: 0;
       flex-direction: row;
+      margin:0
   }
 }
 
