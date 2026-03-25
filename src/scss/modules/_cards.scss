@@ -18,7 +18,6 @@
 
 
   @include media-breakpoint-up(md) {
-    margin: 0 auto;
     width: 100%;
     height: 682px;
     opacity: 1;
@@ -62,7 +61,7 @@
     width:100%;
     max-width: 1200px;
     grid-template-columns: repeat(3, 1fr);
-    height: 516px;
+    min-height: 516px;
   
   }
 }
