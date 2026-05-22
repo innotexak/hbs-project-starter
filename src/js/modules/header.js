@@ -6,31 +6,95 @@ const header = {
 	drawer: null,
 	drawerClose: null,
 	nav: null,
+	drawerFooter: null,
 
+	// Dynamic array returning interactive items in the exact DOM visual order
 	get focusableElements() {
-		return this.nav.querySelectorAll('a, button');
+		const elements = [];
+
+		// 1. Close icon is always first
+		if (this.drawerClose) elements.push(this.drawerClose);
+
+		// 2. Navigation items
+		if (this.nav) {
+			const navItems = this.nav.querySelectorAll('a, button');
+			elements.push(...Array.from(navItems));
+		}
+
+		// 3. Footer elements (CTA and bottom tabs)
+		if (this.drawerFooter) {
+			const footerItems = this.drawerFooter.querySelectorAll('a, button');
+			elements.push(...Array.from(footerItems));
+		}
+
+		// Filter out any elements hidden by display: none or explicitly disabled
+		return elements.filter(el => {
+			const style = window.getComputedStyle(el);
+			return style.display !== 'none' && style.visibility !== 'hidden';
+		});
 	},
 
 	openDrawer() {
 		document.body.classList.add('drawer-is-open');
 		this.burger.setAttribute('aria-expanded', 'true');
-		this.drawer.setAttribute('aria-hidden', 'false');
+		if (this.drawer) this.drawer.setAttribute('aria-hidden', 'false');
 		document.body.style.overflow = 'hidden';
-		// Focus the close button
-		this.drawerClose.focus();
-		// Make nav links focusable
+
+		// Set tabindex="0" so these elements can be safely reached inside the trap
 		this.focusableElements.forEach(el => el.setAttribute('tabindex', '0'));
+
+		// Force focus instantly onto the close button
+		if (this.drawerClose) {
+			this.drawerClose.focus();
+		}
 	},
 
 	closeDrawer() {
 		document.body.classList.remove('drawer-is-open');
 		this.burger.setAttribute('aria-expanded', 'false');
-		this.drawer.setAttribute('aria-hidden', 'true');
+		if (this.drawer) this.drawer.setAttribute('aria-hidden', 'true');
 		document.body.style.overflow = '';
-		// Return focus to burger
-		this.burger.focus();
-		// Remove focusability from nav links
+
+		// Reset tabindex back to blocking state
 		this.focusableElements.forEach(el => el.setAttribute('tabindex', '-1'));
+
+		// Return focus cleanly back to the burger button
+		this.burger.focus();
+	},
+
+	handleKeyDown(e) {
+		// Only run code if the mobile drawer menu is currently active
+		if (!document.body.classList.contains('drawer-is-open')) return;
+
+		// --- 1. HANDLE ESCAPE KEY ---
+		if (e.key === 'Escape') {
+			e.preventDefault();
+			this.closeDrawer();
+			return;
+		}
+
+		// --- 2. HANDLE TAB TRAP BOUNDARIES ---
+		if (e.key === 'Tab') {
+			const focusables = this.focusableElements;
+			if (focusables.length === 0) return;
+
+			const firstElement = focusables[0]; // Close button
+			const lastElement = focusables[focusables.length - 1]; // Last item in footer
+
+			if (e.shiftKey) {
+				// Shift + Tab: If user is on Close button, cycle backward to Last Item
+				if (document.activeElement === firstElement) {
+					lastElement.focus();
+					e.preventDefault();
+				}
+			} else {
+				// Tab: If user is on Last Item, cycle forward to Close button
+				if (document.activeElement === lastElement) {
+					firstElement.focus();
+					e.preventDefault();
+				}
+			}
+		}
 	},
 
 	init() {
@@ -38,49 +102,41 @@ const header = {
 		this.drawer = document.querySelector('.header__drawer');
 		this.drawerClose = document.querySelector('.header__drawer-close');
 		this.nav = document.querySelector('.header__nav');
+		this.drawerFooter = document.querySelector('.header__drawer-footer');
 
 		if (!this.burger || !this.nav) return;
 
-		// Nav links not focusable by default on mobile (nav is visually hidden)
+		// Block focus pathways if initialized on mobile screen size
 		if (window.innerWidth < 1024) {
 			this.focusableElements.forEach(el => el.setAttribute('tabindex', '-1'));
 		}
 
-		// Burger open
+		// Click Event Handlers
 		this.burger.addEventListener('click', () => this.openDrawer());
-
-		// Close button
 		if (this.drawerClose) {
 			this.drawerClose.addEventListener('click', () => this.closeDrawer());
 		}
 
-		// Close on Escape
-		document.addEventListener('keydown', e => {
-			if (e.key === 'Escape' && document.body.classList.contains('drawer-is-open')) {
-				this.closeDrawer();
-			}
-		});
+		// Single centralized keyboard observer for Esc and Tab trap
+		document.addEventListener('keydown', e => this.handleKeyDown(e));
 
-		// Close on backdrop click (if you keep a backdrop element)
+		// Close on dark backdrop click
 		if (this.drawer) {
 			this.drawer.addEventListener('click', e => {
 				if (e.target === this.drawer) this.closeDrawer();
 			});
 		}
 
-		// Re-evaluate tabindex on resize (e.g. user rotates device to desktop width)
+		// Desktop vs Mobile Resize Reset
 		window.addEventListener('resize', () => {
 			if (window.innerWidth >= 1024) {
-				// Desktop: nav always visible, all links naturally focusable
 				this.focusableElements.forEach(el => el.removeAttribute('tabindex'));
-				// Also close drawer if it was open
 				if (document.body.classList.contains('drawer-is-open')) {
 					document.body.classList.remove('drawer-is-open');
 					document.body.style.overflow = '';
 					this.burger.setAttribute('aria-expanded', 'false');
 				}
 			} else {
-				// Mobile/tablet: only focusable when drawer is open
 				if (!document.body.classList.contains('drawer-is-open')) {
 					this.focusableElements.forEach(el => el.setAttribute('tabindex', '-1'));
 				}

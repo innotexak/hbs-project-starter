@@ -149,6 +149,7 @@
   overflow: hidden;
   width: 100%;
 
+
   @include media-breakpoint-up(md) {
     width: 100%;
     gap: 10px;
@@ -165,6 +166,7 @@
   height: 40px;
   color: $text-color;
   background: transparent;
+  margin:2px;
 
   @include media-breakpoint-up(md) {
     flex: none;
@@ -178,10 +180,11 @@
 }
 
 .header__search-btn {
+  width: 40px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 6px 10px;
   background: transparent;
   border: none;
   cursor: pointer;
@@ -200,9 +203,6 @@
   background: url("../assets/images/search-icon.png") center / contain no-repeat;
 }
 
-// ------------------------------------------------------------------------------
-// Main header
-// ------------------------------------------------------------------------------
 
 .header__main {
   padding: 15px 0;
@@ -242,7 +242,7 @@
   }
 }
 
-// CTA — mobile + tablet: hidden in main header, desktop: visible
+
 .header__cta {
   display: none;
 
@@ -286,7 +286,6 @@
   background-size: 14px;
 }
 
-// Burger — mobile + tablet: visible, desktop: hidden
 .header__burger {
   display: inline-flex;
   align-items: center;
@@ -337,7 +336,6 @@
   }
 }
 
-// When drawer is open, nav becomes the full-screen overlay panel
 .drawer-is-open .header__nav {
   display: flex;
   flex-direction: column;
@@ -351,10 +349,6 @@
    color:$white;
   }
 }
-
-// ------------------------------------------------------------------------------
-// Nav — shared list/item/link styles
-// ------------------------------------------------------------------------------
 
 .nav__list {
   display: flex;
@@ -492,7 +486,7 @@
 
   .nav__link {
     width: 100%;
-    padding: 16px 0;
+    padding: 16px;
     text-align: center;
     align-items: center;
     display: inline-flex;
@@ -545,10 +539,6 @@
   }
 }
 
-// ------------------------------------------------------------------------------
-// Drawer shell — now just handles close button + footer (CTA + tabs)
-// The nav panel is handled by .drawer-is-open .header__nav above
-// ------------------------------------------------------------------------------
 
 .header__drawer {
   display: none; 
@@ -558,16 +548,17 @@
   }
 }
 
-// Close button — fixed top-right, visible only when drawer is open
+
 .header__drawer-close {
   display: none;
+  visibility: hidden;
   position: fixed;
   top: 16px;
   right: 16px;
   z-index: 201;
   align-items: center;
   justify-content: center;
-  width: 44px;
+  width: 44px;      
   height: 44px;
   background: none;
   border: none;
@@ -595,12 +586,14 @@
 
 .drawer-is-open .header__drawer-close {
   display: flex;
- align-items: center;
- justify-content: center;
- width: 100%;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  visibility: visible;
 
   @include media-breakpoint-up(lg) {
     display: none;
+    visibility: hidden;
   }
 }
 

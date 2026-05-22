@@ -1,5 +1,4 @@
-// ----------  tabs-accordion
-// ------------------------------------------------------------------------------
+
 
 @use "../abstracts" as *;
 @use "sass:color";
@@ -30,21 +29,16 @@
   }
 }
 
-// ------------------------------------------------------------------------------
-// Tabs
-// ------------------------------------------------------------------------------
 
 .tabs-accordion__tabs {
   display: flex;
   flex-wrap: nowrap;
   gap: 9px;
-
-  /* Horizontally scrollable tab row */
   overflow: auto hidden;
   touch-action: pan-x;
   -ms-overflow-style: none;
   scrollbar-width: none;
-  padding: 0 0 24px;
+  padding: 12px  24px;
   width: 100%;
   -webkit-overflow-scrolling: touch;
 
@@ -92,22 +86,10 @@
       opacity: 1;
       border-radius: 100px;
       border-width: 1px;
-      padding: 7px;
-  }
 
-    @include media-breakpoint-up(lg){
-      width: 129px;
-      height: 50px;
-      opacity: 1;
-      border-radius: 100px;
-      border-width: 1px;
-      padding: 7px;
-    }
+  }
 }
 
-// ------------------------------------------------------------------------------
-// Panels
-// ------------------------------------------------------------------------------
 
 .tabs-accordion__panel {
   display: none;

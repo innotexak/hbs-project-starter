@@ -1,5 +1,3 @@
-// ----------  tabs-accordion
-// ------------------------------------------------------------------------------
 const tabsAccordion = {
 	activeAccordionClass: 'accordion__item--open',
 
@@ -12,14 +10,20 @@ const tabsAccordion = {
 		});
 
 		panels.forEach((panel, i) => {
-			panel.classList.toggle('tabs-accordion__panel--active', i === index);
+			const isActive = i === index;
+			panel.classList.toggle('tabs-accordion__panel--active', isActive);
+			panel.hidden = !isActive;
 		});
 
-		// Close all accordions in the specific component when switching tabs
 		el.querySelectorAll('.js-accordion-item').forEach(item => {
 			item.classList.remove(this.activeAccordionClass);
 			const body = item.querySelector('.js-accordion-body');
-			if (body) body.style.height = '0';
+			const trigger = item.querySelector('.js-accordion-button');
+			if (body) {
+				body.style.height = '0';
+				body.hidden = true;
+			}
+			if (trigger) trigger.setAttribute('aria-expanded', 'false');
 		});
 	},
 
@@ -27,27 +31,33 @@ const tabsAccordion = {
 		const parent = button.closest('.js-accordion-item');
 		const body = parent.querySelector('.js-accordion-body');
 		const content = parent.querySelector('.js-accordion-content');
-		// Scope search to the immediate parent list only
 		const accordionList = button.closest('.js-accordion');
 
-		if (parent.classList.contains(this.activeAccordionClass)) {
+		const isOpen = parent.classList.contains(this.activeAccordionClass);
+
+		if (isOpen) {
 			parent.classList.remove(this.activeAccordionClass);
 			body.style.height = '0';
+			body.hidden = true;
+			button.setAttribute('aria-expanded', 'false');
 			return;
 		}
 
-		// Close others ONLY in this specific list
 		accordionList.querySelectorAll('.js-accordion-item').forEach(item => {
 			item.classList.remove(this.activeAccordionClass);
 			const bodyItem = item.querySelector('.js-accordion-body');
-			if (bodyItem) bodyItem.style.height = '0';
+			const trigger = item.querySelector('.js-accordion-button');
+			if (bodyItem) {
+				bodyItem.style.height = '0';
+				bodyItem.hidden = true;
+			}
+			if (trigger) trigger.setAttribute('aria-expanded', 'false');
 		});
 
-		// Calculate height (since tab is active, content.scrollHeight will work)
-		const height = content.scrollHeight + 'px';
-
 		parent.classList.add(this.activeAccordionClass);
-		body.style.height = height;
+		body.hidden = false;
+		body.style.height = content.scrollHeight + 'px';
+		button.setAttribute('aria-expanded', 'true');
 
 		setTimeout(() => {
 			parent.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
@@ -58,17 +68,33 @@ const tabsAccordion = {
 		const tabs = Array.from(el.querySelectorAll('.tabs-accordion__tab'));
 		const panels = Array.from(el.querySelectorAll('.tabs-accordion__panel'));
 
-		// Handle initial open items
-		el.querySelectorAll('.js-accordion-item.accordion__item--open').forEach(item => {
-			const body = item.querySelector('.js-accordion-body');
-			const content = item.querySelector('.js-accordion-content');
-			if (body && content) {
-				body.style.height = content.scrollHeight + 'px';
-			}
-		});
-
 		tabs.forEach((tab, index) => {
 			tab.addEventListener('click', () => this.switchTab(el, tabs, panels, index));
+
+			tab.addEventListener('keydown', e => {
+				let newIndex = index;
+
+				switch (e.key) {
+					case 'ArrowRight':
+						newIndex = (index + 1) % tabs.length;
+						break;
+					case 'ArrowLeft':
+						newIndex = (index - 1 + tabs.length) % tabs.length;
+						break;
+					case 'Home':
+						newIndex = 0;
+						break;
+					case 'End':
+						newIndex = tabs.length - 1;
+						break;
+					default:
+						return;
+				}
+
+				e.preventDefault();
+				tabs[newIndex].focus();
+				this.switchTab(el, tabs, panels, newIndex);
+			});
 		});
 
 		el.querySelectorAll('.js-accordion-button').forEach(button => {
@@ -77,10 +103,8 @@ const tabsAccordion = {
 	},
 
 	init() {
-		const instances = document.querySelectorAll('.tabs-accordion');
-		instances.forEach(el => this.initInstance(el));
+		document.querySelectorAll('.tabs-accordion').forEach(el => this.initInstance(el));
 	}
 };
 
 export default tabsAccordion;
-

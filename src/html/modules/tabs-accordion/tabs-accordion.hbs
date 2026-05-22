@@ -8,7 +8,8 @@
     {{#if tabs}}
     <div class="tabs-accordion__tabs" role="tablist" aria-label="Content tabs">
       {{#each tabs}}
-      <button
+     <button
+        id="tab-{{@index}}"
         class="tabs-accordion__tab{{#if this.active}} tabs-accordion__tab--active{{/if}}"
         role="tab"
         aria-selected="{{#if this.active}}true{{else}}false{{/if}}"
@@ -26,6 +27,7 @@
       class="tabs-accordion__panel{{#if this.active}} tabs-accordion__panel--active{{/if}}"
       role="tabpanel"
       id="tab-panel-{{@index}}"
+      aria-labelledby="tab-{{@index}}"
     >
       <div class="tabs-accordion__panel-inner">
 
@@ -45,13 +47,21 @@
            <li class="accordion__item js-accordion-item{{#if this.open}}  accordion__item--open{{/if}}">
               <button
                 class="accordion__trigger js-accordion-button"
-                aria-expanded="false"
+                aria-expanded="{{#if this.open}}true{{else}}false{{/if}}"
+                aria-controls="accordion-panel-{{@../index}}-{{@index}}"
+                id="accordion-trigger-{{@../index}}-{{@index}}"
                 type="button"
               >
                 <span class="accordion__title">{{this.title}}</span>
                 <span class="accordion__icon" aria-hidden="true"></span>
               </button>
-              <div class="accordion__body js-accordion-body">
+             <div
+                class="accordion__body js-accordion-body"
+                id="accordion-panel-{{@../index}}-{{@index}}"
+                role="region"
+                aria-labelledby="accordion-trigger-{{@../index}}-{{@index}}"
+                {{#unless this.open}}hidden{{/unless}}
+              >
                 <div class="accordion__content js-accordion-content">
                 {{{formatParagraphs this.body}}}
                 </div>
